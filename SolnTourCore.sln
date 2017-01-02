@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SolnTourCore.Presentation", "SolnTourCore.Presentation\SolnTourCore.Presentation.xproj", "{82B8A0F1-BE01-404B-A4C1-B76C2FD43D00}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SolnTourCore.Business", "SolnTourCore.Business\SolnTourCore.Business.xproj", "{638B78EF-D960-4EED-A356-A014DBAE41CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{82B8A0F1-BE01-404B-A4C1-B76C2FD43D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B8A0F1-BE01-404B-A4C1-B76C2FD43D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B8A0F1-BE01-404B-A4C1-B76C2FD43D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638B78EF-D960-4EED-A356-A014DBAE41CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638B78EF-D960-4EED-A356-A014DBAE41CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638B78EF-D960-4EED-A356-A014DBAE41CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638B78EF-D960-4EED-A356-A014DBAE41CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
