@@ -1,17 +1,21 @@
-﻿@*
-	For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<SolnTourCore.Presentation.Models.country>
 @{
-	Layout = null;
+	ViewData["Title"] = "Home Page";
 }
 
-<!doctype html>
-<html>
-<head>
-	<title>Starting SolnTourCore project!</title>
-	<meta name="viewport" content="width=device-width"/>
-</head>
-<body>
-	<h2>Hello! Start with me!</h2>
-</body>
-</html>
+
+<table>
+	<tr>
+		<td>id</td>
+		<td>Name</td>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.country_id</td>
+			<td>@item.country_name</td>
+		</tr>
+
+	}
+</table>
+
