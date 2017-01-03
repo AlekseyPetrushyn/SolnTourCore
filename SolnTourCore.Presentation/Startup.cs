@@ -31,10 +31,14 @@ namespace SolnTourCore.Presentation
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();    //добавляем mvc как сервис для его использования
+
+			//определим строку подключения к бд PostgreSQL из appsettings.json
 			var connectionString = Configuration["DbContextSetting:ConnectionString"];
+			//добавляем в сервис DbContent и подключаемся к postgresql
 			services.AddDbContext<CountryContext>(
 				opts => opts.UseNpgsql(connectionString)
 			);
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
