@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SolnTourCore.Presentation.Models
 {
-	public class country
+	public class Country
 	{
 		[Key]
 		public int country_id { get; set; }
@@ -22,6 +22,6 @@ namespace SolnTourCore.Presentation.Models
 		{
 			
 		}
-		public DbSet<country> countries { get; set; }
+		public DbSet<Country> countries { get; set; }
 	}
 }
