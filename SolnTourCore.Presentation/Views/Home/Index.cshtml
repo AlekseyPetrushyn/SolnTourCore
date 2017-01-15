@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SolnTourCore.Presentation.Models.RoomType>
+﻿@model IEnumerable<SolnTourCore.Presentation.Models.Food>
 @{
 	ViewData["Title"] = "Home Page";
 }
@@ -13,8 +13,8 @@
 	@foreach (var item in Model)
 	{
 		<tr>
-			<td>@item.RoomTypeId</td>
-			<td>@item.RoomTypeName</td>
+			<td>@item.FoodId</td>
+			<td>@item.FoodName</td>
 			<td>@item.Description</td>
 		</tr>
 

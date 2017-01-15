@@ -17,7 +17,7 @@ namespace SolnTourCore.Presentation.Controllers
 		}
 		public IActionResult Index()
 		{
-			return View(_context.room_types.ToList());
+			return View(_context.foods.ToList());
 		}
 
 		public IActionResult About()
