@@ -15,5 +15,6 @@ namespace SolnTourCore.DataAccess.EFContext
 		}
 
 		public DbSet<Country> countries { get; set; }
+		public DbSet<Place> places { get; set; }
 	}
 }
