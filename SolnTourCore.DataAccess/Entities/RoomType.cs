@@ -17,6 +17,3 @@ namespace SolnTourCore.DataAccess.Entities
 		public string Description { get; set; }
 	}
 }
-room_type_id SERIAL UNIQUE NOT NULL PRIMARY KEY,
-room_type_name VARCHAR(80) NOT NULL,
-description VARCHAR(280) NOT NULL
