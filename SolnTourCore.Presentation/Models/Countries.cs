@@ -35,6 +35,15 @@ namespace SolnTourCore.Presentation.Models
 		[Column("description")]
 		public string Description { get; set; }
 	}
+	public class HotelCategory
+	{
+		[Key, Column("hotel_category_id")]
+		public int HotelCategoryId { get; set; }
+		[Column("hotel_category_name")]
+		public string HotelCategoryName { get; set; }
+		[Column("description")]
+		public string Description { get; set; }
+	}
 
 	public class CountryContext : DbContext
 	{
@@ -45,5 +54,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<Country> countries { get; set; }
 		public DbSet<Place> places { get; set; }
 		public DbSet<Accomodation> accomodations { get; set; }
+		public DbSet<HotelCategory> hotel_categorys { get; set; }
 	}
 }
