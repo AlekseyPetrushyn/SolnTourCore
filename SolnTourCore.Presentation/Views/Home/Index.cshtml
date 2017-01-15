@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SolnTourCore.Presentation.Models.Country>
+﻿@model IEnumerable<SolnTourCore.Presentation.Models.Place>
 @{
 	ViewData["Title"] = "Home Page";
 }
@@ -8,12 +8,14 @@
 	<tr>
 		<td>id</td>
 		<td>Name</td>
+		<td>CountryId</td>
 	</tr>
 	@foreach (var item in Model)
 	{
 		<tr>
+			<td>@item.PlaceId</td>
+			<td>@item.PlaceName</td>
 			<td>@item.CountryId</td>
-			<td>@item.CountryName</td>
 		</tr>
 
 	}

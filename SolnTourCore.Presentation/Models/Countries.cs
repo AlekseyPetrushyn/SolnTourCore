@@ -17,6 +17,15 @@ namespace SolnTourCore.Presentation.Models
 		public string CountryName { get; set; }
 		
 	}
+	public class Place
+	{
+		[Key, Column("place_id")]
+		public int PlaceId { get; set; }
+		[Column("place_name")]
+		public string PlaceName { get; set; }
+		[ForeignKey("CountryId"), Column("country_id")]
+		public int CountryId { get; set; }
+	}
 
 	public class CountryContext : DbContext
 	{
@@ -25,5 +34,6 @@ namespace SolnTourCore.Presentation.Models
 			
 		}
 		public DbSet<Country> countries { get; set; }
+		public DbSet<Place> places { get; set; }
 	}
 }
