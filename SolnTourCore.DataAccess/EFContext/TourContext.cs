@@ -17,5 +17,6 @@ namespace SolnTourCore.DataAccess.EFContext
 		public DbSet<Country> countries { get; set; }
 		public DbSet<Place> places { get; set; }
 		public DbSet<Accomodation> accomodations { get; set; }
+		public DbSet<HotelCategory> hotel_categorys { get; set; }
 	}
 }
