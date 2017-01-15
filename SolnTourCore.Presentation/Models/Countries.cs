@@ -11,8 +11,7 @@ namespace SolnTourCore.Presentation.Models
 {
 	public class Country
 	{
-		[Key]
-		[Column("country_id")]
+		[Key, Column("country_id")]
 		public int CountryId { get; set; }
 		[Column("country_name")]
 		public string CountryName { get; set; }
