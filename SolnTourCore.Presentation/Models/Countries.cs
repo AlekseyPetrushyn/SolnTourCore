@@ -127,6 +127,19 @@ namespace SolnTourCore.Presentation.Models
 		[Column("price")]
 		public decimal Price { get; set; }
 	}
+
+
+	public class Transport
+	{
+		[Key, Column("transport_id")]
+		public int TransportId { get; set; }
+		[Column("transport_name")]
+		public string TransportName { get; set; }
+
+	}
+
+
+
 	public class CountryContext : DbContext
 	{
 		public CountryContext(DbContextOptions<CountryContext> options) : base(options)
