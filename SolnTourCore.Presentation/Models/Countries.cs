@@ -136,6 +136,7 @@ namespace SolnTourCore.Presentation.Models
 		public int TransportId { get; set; }
 		[Column("transport_name")]
 		public string TransportName { get; set; }
+		public IEnumerable<Transfer> Transfers { get; set; }
 	}
 	public class DepartureCity
 	{
@@ -147,6 +148,7 @@ namespace SolnTourCore.Presentation.Models
 		public int CountryId { get; set; }
 		[Column("city_name")]
 		public string CityName { get; set; }
+		public IEnumerable<Transfer> Transfers { get; set; }
 	}
 	public class DestinationCity
 	{
@@ -158,7 +160,26 @@ namespace SolnTourCore.Presentation.Models
 		public int CountryId { get; set; }
 		[Column("city_name")]
 		public string CityName { get; set; }
-
+		public IEnumerable<Transfer> Transfers { get; set; }
+	}
+	public class Transfer
+	{
+		[Key, Column("transfer_id")]
+		public int TransferId { get; set; }
+		[ForeignKey("TransportId")]
+		public Transport Transport { get; set; }
+		[Column("transport_id")]
+		public int TransportId { get; set; }
+		[ForeignKey("CityId")]
+		public DepartureCity DepartureCity { get; set; }
+		[Column("departure_city_id")]
+		public int DepartureCityId { get; set; }
+		[ForeignKey("CityId")]
+		public DestinationCity DestinationCity { get; set; }
+		[Column("destination_city_id")]
+		public int DestinationCityId { get; set; }
+		[Column("price")]
+		public decimal Price { get; set; }
 	}
 
 	public class CountryContext : DbContext
@@ -180,5 +201,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<Transport> transports { get; set; }
 		public DbSet<DepartureCity> departure_citys { get; set; }
 		public DbSet<DestinationCity> destination_citys { get; set; }
+		public DbSet<Transfer> transfers { get; set; }
 	}
 }
