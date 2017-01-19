@@ -15,7 +15,8 @@ namespace SolnTourCore.Presentation.Models
 		public int CountryId { get; set; }
 		[Column("country_name")]
 		public string CountryName { get; set; }
-		
+		public IEnumerable<Place> Places { get; set; }  //referencies to Place
+
 	}
 	public class Place
 	{
@@ -23,9 +24,11 @@ namespace SolnTourCore.Presentation.Models
 		public int PlaceId { get; set; }
 		[Column("place_name")]
 		public string PlaceName { get; set; }
-		[ForeignKey("CountryId"), Column("country_id")]
+		[ForeignKey("CountryId")]
+		public Country Country { get; set; }
+		[Column("country_id")]
 		public int CountryId { get; set; }
-		public IEnumerable<Hotel> Hotels { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; }  //referencies to Hotel
 	}
 	public class Accomodation
 	{
@@ -35,6 +38,7 @@ namespace SolnTourCore.Presentation.Models
 		public string AccomodationName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class HotelCategory
 	{
@@ -44,6 +48,7 @@ namespace SolnTourCore.Presentation.Models
 		public string HotelCategoryName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class RoomType
 	{
@@ -53,6 +58,7 @@ namespace SolnTourCore.Presentation.Models
 		public string RoomTypeName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class Food
 	{
@@ -62,6 +68,7 @@ namespace SolnTourCore.Presentation.Models
 		public string FoodName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class Location
 	{
@@ -71,6 +78,7 @@ namespace SolnTourCore.Presentation.Models
 		public string LocationName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class Recreation
 	{
@@ -80,6 +88,7 @@ namespace SolnTourCore.Presentation.Models
 		public string RecreationName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 	public class Hotel
 	{

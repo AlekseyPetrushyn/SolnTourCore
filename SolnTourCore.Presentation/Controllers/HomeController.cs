@@ -18,7 +18,7 @@ namespace SolnTourCore.Presentation.Controllers
 		}
 		public IActionResult Index()
 		{
-			var hh = _context.hotels.Include(p => p.Place);
+			var hh = _context.hotels.Include(p => p.Place.Country).Include(p => p.Accomodation);
 			return View(hh.ToList());
 		}
 
