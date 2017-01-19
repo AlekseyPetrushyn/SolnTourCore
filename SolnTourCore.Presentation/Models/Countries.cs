@@ -17,6 +17,7 @@ namespace SolnTourCore.Presentation.Models
 		public string CountryName { get; set; }
 		public IEnumerable<Place> Places { get; set; }  //referencies to Place
 		public IEnumerable<DepartureCity> DepartureCities { get; set; } //referencies to DeparturCitys
+		public IEnumerable<DestinationCity> DestinationCities { get; set; } //referencies to DestinationCitys
 	}
 	public class Place
 	{
@@ -135,7 +136,6 @@ namespace SolnTourCore.Presentation.Models
 		public int TransportId { get; set; }
 		[Column("transport_name")]
 		public string TransportName { get; set; }
-
 	}
 	public class DepartureCity
 	{
@@ -147,9 +147,19 @@ namespace SolnTourCore.Presentation.Models
 		public int CountryId { get; set; }
 		[Column("city_name")]
 		public string CityName { get; set; }
+	}
+	public class DestinationCity
+	{
+		[Key, Column("city_id")]
+		public int CityId { get; set; }
+		[ForeignKey("CountryId")]
+		public Country Country { get; set; }
+		[Column("country_id")]
+		public int CountryId { get; set; }
+		[Column("city_name")]
+		public string CityName { get; set; }
 
 	}
-
 
 	public class CountryContext : DbContext
 	{
@@ -169,5 +179,6 @@ namespace SolnTourCore.Presentation.Models
 
 		public DbSet<Transport> transports { get; set; }
 		public DbSet<DepartureCity> departure_citys { get; set; }
+		public DbSet<DestinationCity> destination_citys { get; set; }
 	}
 }

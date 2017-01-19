@@ -16,7 +16,8 @@ namespace SolnTourCore.DataAccess.Entities
 		public string CountryName { get; set; }
 
 		public IEnumerable<Place> Places { get; set; }	//referencies to Place
-		public IEnumerable<DepartureCity> DepartureCities { get; set; }	//referencies to DeparturCitys
+		public IEnumerable<DepartureCity> DepartureCities { get; set; } //referencies to DeparturCitys
+		public IEnumerable<DestinationCity> DestinationCities { get; set; } //referencies to DestinationCitys
 
 	}
 }
