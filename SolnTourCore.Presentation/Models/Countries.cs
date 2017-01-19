@@ -62,6 +62,15 @@ namespace SolnTourCore.Presentation.Models
 		[Column("description")]
 		public string Description { get; set; }
 	}
+	public class Location
+	{
+		[Key, Column("location_id")]
+		public int LocationId { get; set; }
+		[Column("location_name")]
+		public string LocationName { get; set; }
+		[Column("description")]
+		public string Description { get; set; }
+	}
 	public class CountryContext : DbContext
 	{
 		public CountryContext(DbContextOptions<CountryContext> options) : base(options)
@@ -74,6 +83,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<HotelCategory> hotel_categorys { get; set; }
 		public DbSet<RoomType> room_types { get; set; }
 		public DbSet<Food> foods { get; set; }
-
+		public DbSet<Location> locations { get; set; }
 	}
 }
