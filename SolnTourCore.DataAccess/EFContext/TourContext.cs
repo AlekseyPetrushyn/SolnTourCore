@@ -25,5 +25,6 @@ namespace SolnTourCore.DataAccess.EFContext
 		public DbSet<Hotel> hotels { get; set; }
 
 		public DbSet<Transport> transports { get; set; }
+		public DbSet<DepartureCity> departure_citys { get; set; }
 	}
 }
