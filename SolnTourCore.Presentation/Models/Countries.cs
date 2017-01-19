@@ -267,6 +267,15 @@ namespace SolnTourCore.Presentation.Models
 		[Column("password")]
 		public string Password { get; set; }
 	}
+	public class AccessLevel
+	{
+		[Key, Column("access_id")]
+		public int AccessId { get; set; }
+		[Column("access_name")]
+		public string AccessName { get; set; }
+		[Column("description")]
+		public string Description { get; set; }
+	}
 	public class CountryContext : DbContext
 	{
 		public CountryContext(DbContextOptions<CountryContext> options) : base(options)
@@ -293,5 +302,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<Tour> tours { get; set; }
 		public DbSet<Discount> discounts { get; set; }
 		public DbSet<Client> clients { get; set; }
+		public DbSet<AccessLevel> access_levels { get; set; }
 	}
 }
