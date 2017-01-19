@@ -15,5 +15,6 @@ namespace SolnTourCore.DataAccess.Entities
 		public string PlaceName { get; set; }
 		[ForeignKey("CountryId"), Column("country_id")]
 		public int CountryId { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 }

@@ -15,5 +15,6 @@ namespace SolnTourCore.DataAccess.Entities
 		public string RoomTypeName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
+		public IEnumerable<Hotel> Hotels { get; set; } //referencies to Hotel
 	}
 }
