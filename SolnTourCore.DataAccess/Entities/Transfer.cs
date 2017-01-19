@@ -25,10 +25,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public int DestinationCityId { get; set; }
 		[Column("price")]
 		public decimal Price { get; set; }
+
+		public IEnumerable<TourOperator> TourOperators { get; set; }
 	}
 }
-transfer_id SERIAL UNIQUE NOT NULL PRIMARY KEY,
-transport_id INTEGER REFERENCES transports(transport_id),
-departure_city_id INTEGER REFERENCES departure_citys(city_id),
-destination_city_id INTEGER REFERENCES destination_citys(city_id),
-transfer_price NUMERIC(6,2) NOT NULL

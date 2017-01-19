@@ -13,6 +13,6 @@ namespace SolnTourCore.DataAccess.Entities
 		public int TransportId { get; set; }
 		[Column("transport_name")]
 		public string TransportName { get; set; }
-
+		public IEnumerable<Transfer> Transfers { get; set; }
 	}
 }

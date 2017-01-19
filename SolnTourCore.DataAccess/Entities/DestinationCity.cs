@@ -17,6 +17,6 @@ namespace SolnTourCore.DataAccess.Entities
 		public int CountryId { get; set; }
 		[Column("city_name")]
 		public string CityName { get; set; }
-
+		public IEnumerable<Transfer> Transfers { get; set; }
 	}
 }

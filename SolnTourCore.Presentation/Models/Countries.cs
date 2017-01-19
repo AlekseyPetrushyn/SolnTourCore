@@ -182,6 +182,19 @@ namespace SolnTourCore.Presentation.Models
 		public decimal Price { get; set; }
 	}
 
+
+	public class AdditionalService
+	{
+		[Key, Column("service_id")]
+		public int ServiceId { get; set; }
+		[Column("service_name")]
+		public int ServiceName { get; set; }
+		[Column("description")]
+		public string Description { get; set; }
+		[Column("price")]
+		public decimal Price { get; set; }
+
+	}
 	public class CountryContext : DbContext
 	{
 		public CountryContext(DbContextOptions<CountryContext> options) : base(options)
@@ -202,5 +215,8 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<DepartureCity> departure_citys { get; set; }
 		public DbSet<DestinationCity> destination_citys { get; set; }
 		public DbSet<Transfer> transfers { get; set; }
+
+		public DbSet<AdditionalService> additional_services { get; set; }
+		public DbSet<TourOperator> tour_operators { get; set; }
 	}
 }
