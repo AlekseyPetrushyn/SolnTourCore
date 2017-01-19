@@ -15,5 +15,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public string DiscountName { get; set; }
 		[Column("percent")]
 		public double Percent { get; set; }
+
+		public IEnumerable<Client> Clients { get; set; }
 	}
 }

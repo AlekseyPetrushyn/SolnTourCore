@@ -238,6 +238,34 @@ namespace SolnTourCore.Presentation.Models
 		public string DiscountName { get; set; }
 		[Column("percent")]
 		public double Percent { get; set; }
+		public IEnumerable<Client> Clients { get; set; }
+	}
+	public class Client
+	{
+		[Key, Column("client_id")]
+		public int ClientId { get; set; }
+		[Column("second_name")]
+		public string SecondName { get; set; }
+		[Column("first_name")]
+		public string FirstName { get; set; }
+		[Column("patronymic")]
+		public string Patronymic { get; set; }
+		[Column("birth_day")]
+		public DateTime BirthDay { get; set; }
+		[Column("adress")]
+		public string Address { get; set; }
+		[Column("mobil_number")]
+		public string MobilNumber { get; set; }
+		[Column("email")]
+		public string Email { get; set; }
+		[ForeignKey("DiscountId")]
+		public Discount Discount { get; set; }
+		[Column("discount_id")]
+		public int DiscountId { get; set; }
+		[Column("login")]
+		public string Login { get; set; }
+		[Column("password")]
+		public string Password { get; set; }
 	}
 	public class CountryContext : DbContext
 	{
@@ -264,5 +292,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<TourOperator> tour_operators { get; set; }
 		public DbSet<Tour> tours { get; set; }
 		public DbSet<Discount> discounts { get; set; }
+		public DbSet<Client> clients { get; set; }
 	}
 }
