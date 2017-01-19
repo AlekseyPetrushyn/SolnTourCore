@@ -155,5 +155,7 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<Location> locations { get; set; }
 		public DbSet<Recreation> recreations { get; set; }
 		public DbSet<Hotel> hotels { get; set; }
+
+		public DbSet<Transport> transports { get; set; }
 	}
 }
