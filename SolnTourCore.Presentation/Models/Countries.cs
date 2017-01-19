@@ -229,6 +229,7 @@ namespace SolnTourCore.Presentation.Models
 		public DateTime DapartureDate { get; set; }
 		[Column("destination_date")]
 		public DateTime DestinationDate { get; set; }
+		public IEnumerable<Order> Orders { get; set; }
 	}
 	public class Discount
 	{
@@ -266,6 +267,7 @@ namespace SolnTourCore.Presentation.Models
 		public string Login { get; set; }
 		[Column("password")]
 		public string Password { get; set; }
+		public IEnumerable<Order> Orders { get; set; }
 	}
 	public class AccessLevel
 	{
@@ -303,6 +305,24 @@ namespace SolnTourCore.Presentation.Models
 		public string Login { get; set; }
 		[Column("password")]
 		public string Password { get; set; }
+		public IEnumerable<Order> Orders { get; set; }
+	}
+	public class Order
+	{
+		[Key, Column("order_id")]
+		public int OrderId { get; set; }
+		[ForeignKey("TourId")]
+		public Tour Tour { get; set; }
+		[Column("tour_id")]
+		public int TourId { get; set; }
+		[ForeignKey("ClientId")]
+		public Client Client { get; set; }
+		[Column("client_id")]
+		public int ClientId { get; set; }
+		[ForeignKey("EmployeeId")]
+		public Employee Employee { get; set; }
+		[Column("employee_id")]
+		public int EmployeeId { get; set; }
 	}
 	public class CountryContext : DbContext
 	{
@@ -332,5 +352,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<Client> clients { get; set; }
 		public DbSet<AccessLevel> access_levels { get; set; }
 		public DbSet<Employee> employees { get; set; }
+		public DbSet<Order> orders { get; set; }
 	}
 }

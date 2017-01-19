@@ -33,5 +33,6 @@ namespace SolnTourCore.DataAccess.Entities
 		public string Login { get; set; }
 		[Column("password")]
 		public string Password { get; set; }
+		public IEnumerable<Order> Orders { get; set; }
 	}
 }

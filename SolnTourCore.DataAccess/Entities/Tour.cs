@@ -23,5 +23,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public DateTime DapartureDate { get; set; }
 		[Column("destination_date")]
 		public DateTime DestinationDate { get; set; }
+
+		public IEnumerable<Order> Orders { get; set; }
 	}
 }

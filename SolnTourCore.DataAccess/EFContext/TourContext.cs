@@ -36,5 +36,6 @@ namespace SolnTourCore.DataAccess.EFContext
 		public DbSet<Client> clients { get; set; }
 		public DbSet<AccessLevel> access_levels { get; set; }
 		public DbSet<Employee> employees { get; set; }
+		public DbSet<Order> orders { get; set; }
 	}
 }
