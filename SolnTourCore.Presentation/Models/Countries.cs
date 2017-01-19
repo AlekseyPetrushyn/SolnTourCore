@@ -127,6 +127,7 @@ namespace SolnTourCore.Presentation.Models
 		public int RecreationId { get; set; }
 		[Column("price")]
 		public decimal Price { get; set; }
+		public IEnumerable<Tour> Tours { get; set; }
 	}
 
 
@@ -210,6 +211,24 @@ namespace SolnTourCore.Presentation.Models
 		public Transfer Transfer { get; set; }
 		[Column("transfer_id")]
 		public int TransferId { get; set; }
+		public IEnumerable<Tour> Tours { get; set; }
+	}
+	public class Tour
+	{
+		[Key, Column("tour_id")]
+		public int TourId { get; set; }
+		[ForeignKey("OperatorId")]
+		public TourOperator TourOperator { get; set; }
+		[Column("tour_operator_id")]
+		public int TourOperatorId { get; set; }
+		[ForeignKey("HotelId")]
+		public Hotel Hotel { get; set; }
+		[Column("hotel_id")]
+		public int HotelId { get; set; }
+		[Column("departure_date")]
+		public DateTime DapartureDate { get; set; }
+		[Column("destination_date")]
+		public DateTime DestinationDate { get; set; }
 	}
 
 	public class CountryContext : DbContext
@@ -235,5 +254,6 @@ namespace SolnTourCore.Presentation.Models
 
 		public DbSet<AdditionalService> additional_services { get; set; }
 		public DbSet<TourOperator> tour_operators { get; set; }
+		public DbSet<Tour> tours { get; set; }
 	}
 }

@@ -43,5 +43,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public int RecreationId { get; set; }
 		[Column("price")]
 		public decimal Price { get; set; }
+
+		public IEnumerable<Tour> Tours { get; set; }
 	}
 }

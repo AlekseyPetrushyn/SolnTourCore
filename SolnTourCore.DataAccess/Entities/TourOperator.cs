@@ -21,5 +21,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public Transfer Transfer { get; set; }
 		[Column("transfer_id")]
 		public int TransferId { get; set; }
+
+		public IEnumerable<Tour> Tours { get; set; }
 	}
 }
