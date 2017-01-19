@@ -230,12 +230,20 @@ namespace SolnTourCore.Presentation.Models
 		[Column("destination_date")]
 		public DateTime DestinationDate { get; set; }
 	}
-
+	public class Discount
+	{
+		[Key, Column("discount_id")]
+		public int DiscountId { get; set; }
+		[Column("discount_name")]
+		public string DiscountName { get; set; }
+		[Column("percent")]
+		public double Percent { get; set; }
+	}
 	public class CountryContext : DbContext
 	{
 		public CountryContext(DbContextOptions<CountryContext> options) : base(options)
 		{
-			
+
 		}
 		public DbSet<Country> countries { get; set; }
 		public DbSet<Place> places { get; set; }
@@ -255,5 +263,6 @@ namespace SolnTourCore.Presentation.Models
 		public DbSet<AdditionalService> additional_services { get; set; }
 		public DbSet<TourOperator> tour_operators { get; set; }
 		public DbSet<Tour> tours { get; set; }
+		public DbSet<Discount> discounts { get; set; }
 	}
 }
