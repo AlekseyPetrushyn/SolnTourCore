@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SolnTourCore.Presentation.Models;
 
 namespace SolnTourCore.Presentation.Controllers
@@ -17,7 +18,8 @@ namespace SolnTourCore.Presentation.Controllers
 		}
 		public IActionResult Index()
 		{
-			return View(_context.recreations.ToList());
+			var hh = _context.hotels.Include(p => p.Place);
+			return View(hh.ToList());
 		}
 
 		public IActionResult About()

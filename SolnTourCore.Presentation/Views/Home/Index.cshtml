@@ -1,21 +1,17 @@
-﻿@model IEnumerable<SolnTourCore.Presentation.Models.Recreation>
+﻿@model IEnumerable<SolnTourCore.Presentation.Models.Hotel>
 @{
 	ViewData["Title"] = "Home Page";
 }
 
 
 <table>
-	<tr>
-		<td>id</td>
-		<td>Name</td>
-		<td>Description</td>
-	</tr>
+
 	@foreach (var item in Model)
 	{
 		<tr>
-			<td>@item.RecreationId</td>
-			<td>@item.RecreationName</td>
-			<td>@item.Description</td>
+			<td>@Html.DisplayFor(modelItem => item.HotelId)</td>
+			<td>@Html.DisplayFor(modelItem => item.HotelName)</td>
+			<td>@Html.DisplayFor(modelItem => item.Place.PlaceName)</td>
 		</tr>
 
 	}
