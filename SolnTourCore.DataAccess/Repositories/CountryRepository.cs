@@ -11,37 +11,37 @@ namespace SolnTourCore.DataAccess.Repositories
 {
 	public class CountryRepository : IRepository<Country>
 	{
-		private TourContext db;
+		private TourContext _context;
 
 		public CountryRepository(TourContext _context)
 		{
-			db = _context;
+			this._context = _context;
 		}
 		public IEnumerable<Country> GetAll()
 		{
-			return db.countries;
+			return _context.countries;
 		}
 		public Country Get(int id)
 		{
-			return db.countries.Find(id);
+			return _context.countries.Find(id);
 		}
 		public void Create(Country item)
 		{
-			db.countries.Add(item);
+			_context.countries.Add(item);
 		}
 		public void Update(Country item)
 		{
-			db.Entry(item).State = EntityState.Modified;
+			_context.Entry(item).State = EntityState.Modified;
 		}
 		public IEnumerable<Country> Find(Func<Country, bool> predicate)
 		{
-			return db.countries.Where(predicate).ToList();
+			return _context.countries.Where(predicate).ToList();
 		}
 		public void Delete(int id)
 		{
-			Country item = db.countries.Find(id);
+			Country item = _context.countries.Find(id);
 			if (item != null)
-				db.countries.Remove(item);
+				_context.countries.Remove(item);
 		}
 	}
 }
