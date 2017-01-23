@@ -4,22 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SolnTourCore.Presentation.Models;
+using SolnTourCore.DataAccess.EFContext;
+using SolnTourCore.DataAccess.Entities;
+using SolnTourCore.DataAccess.Interfaces;
+
 
 namespace SolnTourCore.Presentation.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly CountryContext _context;
+		private IRepository<Hotel> _hotelRepository;
 
-		public HomeController(CountryContext context)
+
+		public HomeController(IRepository<Hotel> hotelRepository)
 		{
-			_context = context;
+			_hotelRepository = hotelRepository;
 		}
 		public IActionResult Index()
 		{
-			var hh = _context.hotels.Include(p => p.Place.Country).Include(p => p.Accomodation);
-			return View(hh.ToList());
+			return View(_hotelRepository.GetAll());
 		}
 
 		public IActionResult About()
