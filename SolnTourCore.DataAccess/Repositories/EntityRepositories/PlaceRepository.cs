@@ -11,7 +11,7 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 	public class PlaceRepository : IRepository<Place>
 	{
 		private TourContext _context;
-		private PlaceRepository(TourContext _context)
+		public PlaceRepository(TourContext _context)
 		{
 			this._context = _context;
 		}
