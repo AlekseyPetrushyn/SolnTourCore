@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SolnTourCore.Presentation.Models;
+//using SolnTourCore.Presentation.Models;
+using SolnTourCore.DataAccess.Interfaces;
+using SolnTourCore.DataAccess.EFContext;
+using SolnTourCore.DataAccess.Entities;
+using SolnTourCore.DataAccess.Repositories.EntityRepositories;
 
 namespace SolnTourCore.Presentation
 {
@@ -35,10 +40,31 @@ namespace SolnTourCore.Presentation
 			//определим строку подключения к бд PostgreSQL из appsettings.json
 			var connectionString = Configuration["DbContextSetting:ConnectionString"];
 			//добавляем в сервис DbContent и подключаемся к postgresql
-			services.AddDbContext<CountryContext>(
+			services.AddDbContext<TourContext>(
 				opts => opts.UseNpgsql(connectionString)
 			);
-
+				//add dependency injection from DataAccess layer
+			services.AddScoped<IRepository<Country>, CountryRepository>();
+			services.AddScoped<IRepository<Place>, PlaceRepository>();
+			services.AddScoped<IRepository<Accomodation>, AccomodationRepository>();
+			services.AddScoped<IRepository<HotelCategory>, HotelCategoryRepository>();
+			services.AddScoped<IRepository<RoomType>, RoomTypeRepository>();
+			services.AddScoped<IRepository<Food>, FoodRepository>();
+			services.AddScoped<IRepository<Location>, LocationRepository>();
+			services.AddScoped<IRepository<Recreation>, RecreationRepository>();
+			services.AddScoped<IRepository<Hotel>, HotelRepository>();
+			services.AddScoped<IRepository<Transport>, TransportRepository>();
+			services.AddScoped<IRepository<DepartureCity>, DepartureCityRepository>();
+			services.AddScoped<IRepository<DestinationCity>, DestinationCityRepository>();
+			services.AddScoped<IRepository<Transfer>, TransferRepository>();
+			services.AddScoped<IRepository<AdditionalService>, AdditionalServiceRepository>();
+			services.AddScoped<IRepository<TourOperator>, TourOperatorRepository>();
+			services.AddScoped<IRepository<Tour>, TourRepository>();
+			services.AddScoped<IRepository<Discount>, DiscountRepository>();
+			services.AddScoped<IRepository<Client>, ClientRepository>();
+			services.AddScoped<IRepository<AccessLevel>, AccessLevelRepository>();
+			services.AddScoped<IRepository<Employee>, EmployeeRepository>();
+			services.AddScoped<IRepository<Order>, OrderRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
