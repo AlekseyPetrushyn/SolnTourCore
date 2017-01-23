@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SolnTourCore.DataAccess.EFContext;
 using SolnTourCore.DataAccess.Entities;
 using SolnTourCore.DataAccess.Interfaces;
 
-namespace SolnTourCore.DataAccess.Repositories
+namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 {
 	public class OrderRepository : IRepository<Order>
 	{
