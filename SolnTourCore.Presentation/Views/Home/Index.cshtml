@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SolnTourCore.Presentation.Models.Hotel>
+﻿@model IEnumerable<SolnTourCore.DataAccess.Entities.Hotel>
 @{
 	ViewData["Title"] = "Home Page";
 }
@@ -13,7 +13,8 @@
 			<td>@Html.DisplayFor(modelItem => item.HotelName)</td>
 		    <td>@Html.DisplayFor(modelItem => item.Place.PlaceName)</td>
 		    <td>@Html.DisplayFor(modelItem => item.Place.Country.CountryName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Accomodation.AccomodationName)</td>
+		    <td>@Html.DisplayFor(modelItem => item.Accomodation.AccomodationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
 
 		</tr>
 
