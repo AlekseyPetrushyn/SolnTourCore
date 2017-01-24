@@ -12,7 +12,7 @@ namespace SolnTourCore.DataAccess.Entities
 		[Key, Column("service_id")]
 		public int ServiceId { get; set; }
 		[Column("service_name")]
-		public int ServiceName { get; set; }
+		public string ServiceName { get; set; }
 		[Column("description")]
 		public string Description { get; set; }
 		[Column("price")]
