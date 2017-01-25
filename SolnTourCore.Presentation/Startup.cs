@@ -10,11 +10,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SolnTourCore.Business.DTO;
+using SolnTourCore.Business.Services.Implementations;
+//using SolnTourCore.Business.Services.Interfaces;
+using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 //using SolnTourCore.Presentation.Models;
 using SolnTourCore.DataAccess.Interfaces;
 using SolnTourCore.DataAccess.EFContext;
 using SolnTourCore.DataAccess.Entities;
 using SolnTourCore.DataAccess.Repositories.EntityRepositories;
+using SolnTourCore.Presentation.ViewModels;
 
 namespace SolnTourCore.Presentation
 {
@@ -65,6 +70,11 @@ namespace SolnTourCore.Presentation
 			services.AddScoped<IRepository<AccessLevel>, AccessLevelRepository>();
 			services.AddScoped<IRepository<Employee>, EmployeeRepository>();
 			services.AddScoped<IRepository<Order>, OrderRepository>();
+
+				// add dependency injection from Business layer
+			services.AddScoped<ICountryService, CountryService>();
+
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,6 +101,15 @@ namespace SolnTourCore.Presentation
 									name: "default",
 									template: "{controller=Home}/{action=Index}/{id?}");
 			});
+				//create map with AutoMapper from Business to Presintation layers
+			AutoMapper.Mapper.Initialize(cfg =>
+				{
+					cfg.CreateMap<CountryViewModel, CountryDTO>();
+					cfg.CreateMap<CountryDTO, CountryViewModel>();
+
+
+				}
+			);
 
 		}
 	}
