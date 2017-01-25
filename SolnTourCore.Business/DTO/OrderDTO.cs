@@ -14,5 +14,6 @@ namespace SolnTourCore.Business.DTO
 		public int ClientId { get; set; }
 		public EmployeeDTO Employee { get; set; }
 		public int EmployeeId { get; set; }
+		public decimal OrderPrice { get; set; }
 	}
 }
