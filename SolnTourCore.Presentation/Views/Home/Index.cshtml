@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SolnTourCore.DataAccess.Entities.Hotel>
+﻿@model IEnumerable<SolnTourCore.Presentation.ViewModels.CountryViewModel>
 @{
 	ViewData["Title"] = "Home Page";
 }
@@ -9,12 +9,9 @@
 	@foreach (var item in Model)
 	{
 		<tr>
-			<td>@Html.DisplayFor(modelItem => item.HotelId)</td>
-			<td>@Html.DisplayFor(modelItem => item.HotelName)</td>
-		    <td>@Html.DisplayFor(modelItem => item.Place.PlaceName)</td>
-		    <td>@Html.DisplayFor(modelItem => item.Place.Country.CountryName)</td>
-		    <td>@Html.DisplayFor(modelItem => item.Accomodation.AccomodationName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+		    <td>@Html.DisplayFor(modelItem => item.CountryId)</td>
+            <td>@Html.DisplayFor(modelItem => item.CountryName)</td>
+
 
 		</tr>
 
