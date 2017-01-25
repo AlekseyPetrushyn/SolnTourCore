@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SolnTourCore.Business.DTO;
+using SolnTourCore.Business.Mapper;
 using SolnTourCore.Business.Services.Implementations;
 //using SolnTourCore.Business.Services.Interfaces;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
@@ -19,6 +20,7 @@ using SolnTourCore.DataAccess.Interfaces;
 using SolnTourCore.DataAccess.EFContext;
 using SolnTourCore.DataAccess.Entities;
 using SolnTourCore.DataAccess.Repositories.EntityRepositories;
+using SolnTourCore.Presentation.Mapper;
 using SolnTourCore.Presentation.ViewModels;
 
 namespace SolnTourCore.Presentation
@@ -104,10 +106,9 @@ namespace SolnTourCore.Presentation
 				//create map with AutoMapper from Business to Presintation layers
 			AutoMapper.Mapper.Initialize(cfg =>
 				{
-					cfg.CreateMap<CountryViewModel, CountryDTO>();
-					cfg.CreateMap<CountryDTO, CountryViewModel>();
+					cfg.AddProfile<PresentationMapper>();
 
-
+					cfg.AddProfile<BusinessMapper>();
 				}
 			);
 
