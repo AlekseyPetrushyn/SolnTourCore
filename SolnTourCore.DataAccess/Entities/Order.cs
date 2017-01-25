@@ -23,5 +23,7 @@ namespace SolnTourCore.DataAccess.Entities
 		public Employee Employee { get; set; }
 		[Column("employee_id")]
 		public int EmployeeId { get; set; }
+		[Column("order_price")]
+		public decimal OrderPrice { get; set; }
 	}
 }
