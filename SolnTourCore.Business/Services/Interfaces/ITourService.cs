@@ -12,6 +12,5 @@ namespace SolnTourCore.Business.Services.Interfaces
 		void Create(T item);
 		void Update(T item);
 		void Delete(int id);
-		void Dispose();
 	}
 }
