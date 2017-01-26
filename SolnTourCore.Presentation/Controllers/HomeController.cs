@@ -19,13 +19,9 @@ namespace SolnTourCore.Presentation.Controllers
 	{
 		private ICountryService _countryService;
 
-		private IRepository<Hotel> _hotelRepository;
-
-
 		public HomeController(IRepository<Hotel> hotelRepository, ICountryService countryService)
 		{
 			_countryService = countryService;
-			_hotelRepository = hotelRepository;
 		}
 		public IActionResult Index()
 		{
