@@ -13,18 +13,18 @@
         </select>
     </p>
 
-@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+@using (Html.BeginForm("Delete", "Home", FormMethod.Post))
 {
     <p>
         <label>CountryId</label><br/>
         <input type="text" name="countryId"/>
     </p>
-    <p>
+ <!--   <p>
         <label>CountryName</label>
         <input type="text" name="countryName"/>
-    </p>
+    </p>-->
     <p>
-        <input type="submit" value="Add new country!"/>
+        <input type="submit" value="Delete country!"/>
     </p>
 }
 
