@@ -27,10 +27,12 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		public void Create(Country item)
 		{
 			_context.countries.Add(item);
+			_context.SaveChanges();
 		}
 		public void Update(Country item)
 		{
 			_context.Entry(item).State = EntityState.Modified;
+			_context.SaveChanges();
 		}
 		public IEnumerable<Country> Find(Func<Country, bool> predicate)
 		{
@@ -41,6 +43,7 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 			Country item = _context.countries.Find(id);
 			if (item != null)
 				_context.countries.Remove(item);
+			_context.SaveChanges();
 		}
 	}
 }
