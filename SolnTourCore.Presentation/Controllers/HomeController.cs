@@ -32,16 +32,10 @@ namespace SolnTourCore.Presentation.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Create(int coutryId, string countryName)
+		public ActionResult Delete(int countryId)
 		{
-			CountryViewModel temp = new CountryViewModel
-			{
-				CountryId = coutryId,
-				CountryName = countryName
-			};
-			var country = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(temp);
-			_countryService.Create(country);
-			return Content("<h2>Сработало!</h2>");
+			_countryService.Delete(countryId);
+			return RedirectToAction(nameof(HomeController.Index));
 		}
 
 		public IActionResult About()
