@@ -23,12 +23,25 @@ namespace SolnTourCore.Presentation.Controllers
 		{
 			_countryService = countryService;
 		}
+		[HttpGet]
 		public IActionResult Index()
 		{
 			IEnumerable<CountryDTO> item = _countryService.GetAll();
-			AutoMapper.Mapper.Initialize(cfg => cfg.CreateMap<CountryDTO, CountryViewModel>());
 			var country = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(item);
 			return View(country);
+		}
+
+		[HttpPost]
+		public ActionResult Create(int coutryId, string countryName)
+		{
+			CountryViewModel temp = new CountryViewModel
+			{
+				CountryId = coutryId,
+				CountryName = countryName
+			};
+			var country = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(temp);
+			_countryService.Create(country);
+			return Content("<h2>Сработало!</h2>");
 		}
 
 		public IActionResult About()
