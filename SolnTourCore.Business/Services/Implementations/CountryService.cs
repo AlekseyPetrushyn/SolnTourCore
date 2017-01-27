@@ -40,7 +40,9 @@ namespace SolnTourCore.Business.Services.Implementations
 
 		public void Update(CountryDTO item)
 		{
-			throw new NotImplementedException();
+		    Country country = _countryRepository.Get(item.CountryId);
+		    country.CountryName = item.CountryName;
+			_countryRepository.Update(country);
 		}
 
 		public void Delete(int id)
