@@ -45,7 +45,7 @@ namespace SolnTourCore.Business.Services.Implementations
 
 		public void Delete(int id)
 		{
-			throw new NotImplementedException();
+			_countryRepository.Delete(id);
 		}
 	}
 }
