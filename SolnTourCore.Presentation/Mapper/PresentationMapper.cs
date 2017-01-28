@@ -15,6 +15,9 @@ namespace SolnTourCore.Presentation.Mapper
 		{
 			CreateMap<CountryViewModel, CountryDTO>();
 			CreateMap<CountryDTO, CountryViewModel>();
+
+		    CreateMap<PlaceViewModel, PlaceDTO>();
+		    CreateMap<PlaceDTO, PlaceViewModel>();
 		}
 	}
 }
