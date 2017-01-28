@@ -24,22 +24,32 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public PlaceDTO Get(int id)
         {
-            throw new NotImplementedException();
+            return AutoMapper.Mapper.Map<Place, PlaceDTO>(_placeRepository.Get(id));
         }
 
         public void Create(PlaceDTO item)
         {
-            throw new NotImplementedException();
+            Place place = new Place
+            {
+                PlaceId = _placeRepository.GetAll().Count() + 1,
+                PlaceName = item.PlaceName,
+                Country = AutoMapper.Mapper.Map<CountryDTO, Country>(item.Country),
+                CountryId = item.CountryId
+            };
         }
 
         public void Update(PlaceDTO item)
         {
-            throw new NotImplementedException();
+            Place place = _placeRepository.Get(item.PlaceId);
+            place.PlaceName = item.PlaceName;
+            place.Country = AutoMapper.Mapper.Map<CountryDTO, Country>(item.Country);
+            place.CountryId = item.CountryId;
+            _placeRepository.Update(place);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _placeRepository.Delete(id);
         }
     }
 }
