@@ -32,16 +32,19 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		public void Create(Place item)
 		{
 			_context.places.Add(item);
+		    _context.SaveChanges();
 		}
 		public void Update(Place item)
 		{
 			_context.Entry(item).State = EntityState.Modified;
+		    _context.SaveChanges();
 		}
 		public void Delete(int id)
 		{
 			Place item = _context.places.Find(id);
 			if (item != null)
 				_context.places.Remove(item);
+		    _context.SaveChanges();
 		}
 	}
 }
