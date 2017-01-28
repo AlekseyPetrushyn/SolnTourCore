@@ -33,11 +33,13 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		public void Create(Accomodation item)
 		{
 			_context.accomodations.Add(item);
+		    _context.SaveChanges();
 		}
 
 		public void Update(Accomodation item)
 		{
 			_context.Entry(item).State = EntityState.Modified;
+		    _context.SaveChanges();
 		}
 
 		public void Delete(int id)
@@ -45,6 +47,7 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 			Accomodation item = _context.accomodations.Find(id);
 			if (item != null)
 				_context.accomodations.Remove(item);
+		    _context.SaveChanges();
 		}
 	}
 }
