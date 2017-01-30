@@ -36,6 +36,7 @@ namespace SolnTourCore.Business.Services.Implementations
                 Country = AutoMapper.Mapper.Map<CountryDTO, Country>(item.Country),
                 CountryId = item.CountryId
             };
+            _placeRepository.Create(place);
         }
 
         public void Update(PlaceDTO item)
