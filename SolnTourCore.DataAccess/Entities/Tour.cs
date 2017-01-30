@@ -20,7 +20,7 @@ namespace SolnTourCore.DataAccess.Entities
 		[Column("hotel_id")]
 		public int HotelId { get; set; }
 		[Column("departure_date")]
-		public DateTime DapartureDate { get; set; }
+		public DateTime DepartureDate { get; set; }
 		[Column("destination_date")]
 		public DateTime DestinationDate { get; set; }
 
