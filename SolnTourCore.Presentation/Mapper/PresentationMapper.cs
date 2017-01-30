@@ -51,7 +51,10 @@ namespace SolnTourCore.Presentation.Mapper
 
 		    CreateMap<TransferViewModel, TransferDTO>();
 		    CreateMap<TransferDTO, TransferViewModel>();
-            
+
+		    CreateMap<AdditionalServiceViewModel, AdditionalServiceDTO>();
+		    CreateMap<AdditionalServiceDTO, AdditionalServiceViewModel>();
+
 		}
 	}
 }
