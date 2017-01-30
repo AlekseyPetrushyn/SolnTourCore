@@ -58,6 +58,7 @@ namespace SolnTourCore.Business.Services.Implementations
             hotel.LocationId = item.LocationId;
             hotel.RecreationId = item.RecreationId;
             hotel.Price = item.Price;
+            _hotelRepository.Update(hotel);
         }
 
         public void Delete(int id)
