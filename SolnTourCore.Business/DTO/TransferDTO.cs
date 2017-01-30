@@ -8,11 +8,8 @@ namespace SolnTourCore.Business.DTO
 	public class TransferDTO
 	{
 		public int TransferId { get; set; }
-		public TransportDTO Transport { get; set; }
 		public int TransportId { get; set; }
-		public DepartureCityDTO DepartureCity { get; set; }
 		public int DepartureCityId { get; set; }
-		public DestinationCityDTO DestinationCity { get; set; }
 		public int DestinationCityId { get; set; }
 		public decimal Price { get; set; }
 	}

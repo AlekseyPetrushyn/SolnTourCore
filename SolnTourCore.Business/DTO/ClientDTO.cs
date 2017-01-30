@@ -15,7 +15,6 @@ namespace SolnTourCore.Business.DTO
 		public string Address { get; set; }
 		public string MobilNumber { get; set; }
 		public string Email { get; set; }
-		public DiscountDTO Discount { get; set; }
 		public int DiscountId { get; set; }
 		public string Login { get; set; }
 		public string Password { get; set; }
