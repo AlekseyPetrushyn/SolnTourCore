@@ -27,6 +27,9 @@ namespace SolnTourCore.Presentation.Mapper
 
 		    CreateMap<RoomTypeViewModel, RoomTypeDTO>();
 		    CreateMap<RoomTypeDTO, RoomTypeViewModel>();
+
+		    CreateMap<FoodViewModel, FoodDTO>();
+		    CreateMap<FoodDTO, FoodViewModel>();
 		}
 	}
 }
