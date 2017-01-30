@@ -7,7 +7,7 @@ using SolnTourCore.DataAccess.Interfaces;
 
 namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
-    public interface IHotelCategoryService : ITourService<HotelCategoryDTO>
+    public interface IHotelCategoryService : IService<HotelCategoryDTO>
     {
 
     }

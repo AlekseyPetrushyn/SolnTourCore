@@ -6,7 +6,7 @@ using SolnTourCore.Business.DTO;
 
 namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
-    public interface ILocationService : ITourService<LocationDTO>
+    public interface ILocationService : IService<LocationDTO>
     {
 
     }

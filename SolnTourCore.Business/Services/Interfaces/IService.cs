@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SolnTourCore.Business.Services.Interfaces
 {
-	public interface ITourService<T> where T : class 
+	public interface IService<T> where T : class 
 	{
 		IEnumerable<T> GetAll();
 		T Get(int id);

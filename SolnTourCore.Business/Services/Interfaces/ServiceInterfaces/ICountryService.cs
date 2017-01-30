@@ -6,7 +6,7 @@ using SolnTourCore.Business.DTO;
 
 namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
-	public interface ICountryService : ITourService<CountryDTO>
+	public interface ICountryService : IService<CountryDTO>
 	{
 
 	}

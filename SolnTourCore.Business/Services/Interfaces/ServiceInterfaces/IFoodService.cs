@@ -6,7 +6,7 @@ using SolnTourCore.Business.DTO;
 
 namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
-    public interface IFoodService : ITourService<FoodDTO>
+    public interface IFoodService : IService<FoodDTO>
     {
 
     }
