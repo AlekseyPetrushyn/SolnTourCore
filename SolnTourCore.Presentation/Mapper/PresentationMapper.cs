@@ -55,6 +55,9 @@ namespace SolnTourCore.Presentation.Mapper
 		    CreateMap<AdditionalServiceViewModel, AdditionalServiceDTO>();
 		    CreateMap<AdditionalServiceDTO, AdditionalServiceViewModel>();
 
+		    CreateMap<TourOperatorViewModel, TourOperatorDTO>();
+		    CreateMap<TourOperatorDTO, TourOperatorViewModel>();
+
 		}
 	}
 }
