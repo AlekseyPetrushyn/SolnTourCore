@@ -38,6 +38,7 @@ namespace SolnTourCore.Business.Services.Implementations
                 HotelCategoryName = item.HotelCategoryName,
                 Description = item.Description
             };
+            _hotelCategoryRepository.Create(hotelCategory);
         }
 
         public void Update(HotelCategoryDTO item)
