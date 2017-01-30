@@ -24,6 +24,9 @@ namespace SolnTourCore.Presentation.Mapper
 
 		    CreateMap<HotelCategoryViewModel, HotelCategoryDTO>();
 		    CreateMap<HotelCategoryDTO, HotelCategoryViewModel>();
+
+		    CreateMap<RoomTypeViewModel, RoomTypeDTO>();
+		    CreateMap<RoomTypeDTO, RoomTypeViewModel>();
 		}
 	}
 }
