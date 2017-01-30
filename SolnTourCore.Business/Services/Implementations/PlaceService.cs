@@ -33,7 +33,6 @@ namespace SolnTourCore.Business.Services.Implementations
             {
                 PlaceId = _placeRepository.GetAll().Count() + 1,
                 PlaceName = item.PlaceName,
-                Country = AutoMapper.Mapper.Map<CountryDTO, Country>(item.Country),
                 CountryId = item.CountryId
             };
             _placeRepository.Create(place);
@@ -43,7 +42,6 @@ namespace SolnTourCore.Business.Services.Implementations
         {
             Place place = _placeRepository.Get(item.PlaceId);
             place.PlaceName = item.PlaceName;
-            place.Country = AutoMapper.Mapper.Map<CountryDTO, Country>(item.Country);
             place.CountryId = item.CountryId;
             _placeRepository.Update(place);
         }
