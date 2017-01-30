@@ -9,7 +9,6 @@ namespace SolnTourCore.Presentation.ViewModels
     {
         public int PlaceId { get; set; }
         public string PlaceName { get; set; }
-        public CountryViewModel Country { get; set; }
         public int CountryId { get; set; }
     }
 }
