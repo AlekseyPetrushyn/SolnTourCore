@@ -11,7 +11,7 @@ namespace SolnTourCore.Business.Services.Implementations
 {
     public class TransferService : ITransferService
     {
-        public IRepository<Transfer> _transferRepository { get; set; }
+        private IRepository<Transfer> _transferRepository { get; set; }
 
         public TransferService(IRepository<Transfer> transferRepository)
         {
