@@ -70,6 +70,9 @@ namespace SolnTourCore.Presentation.Mapper
 		    CreateMap<AccessLevelViewModel, AccessLevelDTO>();
 		    CreateMap<AccessLevelDTO, AccessLevelViewModel>();
 
+		    CreateMap<EmployeeViewModel, EmployeeDTO>();
+		    CreateMap<EmployeeDTO, EmployeeViewModel>();
+
 
 		}
 	}
