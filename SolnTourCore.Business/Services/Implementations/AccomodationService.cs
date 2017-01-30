@@ -35,6 +35,7 @@ namespace SolnTourCore.Business.Services.Implementations
                 AccomodationName = item.AccomodationName,
                 Description = item.Description
             };
+            _accomodationRepository.Create(accomodation);
         }
 
         public void Update(AccomodationDTO item)
