@@ -73,7 +73,8 @@ namespace SolnTourCore.Presentation.Mapper
 		    CreateMap<EmployeeViewModel, EmployeeDTO>();
 		    CreateMap<EmployeeDTO, EmployeeViewModel>();
 
-
+		    CreateMap<OrderViewModel, OrderDTO>();
+		    CreateMap<OrderDTO, OrderViewModel>();
 		}
 	}
 }
