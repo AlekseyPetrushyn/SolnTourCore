@@ -36,6 +36,9 @@ namespace SolnTourCore.Presentation.Mapper
 
 		    CreateMap<RecreationViewModel, RecreationDTO>();
 		    CreateMap<RecreationDTO, RecreationViewModel>();
+
+		    CreateMap<HotelViewModel, HotelDTO>();
+		    CreateMap<HotelDTO, HotelViewModel>();
 		}
 	}
 }
