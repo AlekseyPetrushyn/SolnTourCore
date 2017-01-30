@@ -46,6 +46,9 @@ namespace SolnTourCore.Presentation.Mapper
 		    CreateMap<DepartureCityViewModel, DepartureCityDTO>();
 		    CreateMap<DepartureCityDTO, DepartureCityViewModel>();
 
+		    CreateMap<DestinationCityViewModel, DestinationCityDTO>();
+		    CreateMap<DestinationCityDTO, DestinationCityViewModel>();
+
 		}
 	}
 }
