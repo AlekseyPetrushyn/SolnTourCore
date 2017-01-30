@@ -30,6 +30,9 @@ namespace SolnTourCore.Presentation.Mapper
 
 		    CreateMap<FoodViewModel, FoodDTO>();
 		    CreateMap<FoodDTO, FoodViewModel>();
+
+		    CreateMap<LocationViewModel, LocationDTO>();
+		    CreateMap<LocationDTO, LocationViewModel>();
 		}
 	}
 }
