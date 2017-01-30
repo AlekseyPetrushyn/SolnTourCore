@@ -44,15 +44,6 @@ namespace SolnTourCore.Business.Mapper
 			CreateMap<TransportDTO, Transport>();
 			CreateMap<Transport, TransportDTO>();
 
-			CreateMap<CountryDTO, Country>();
-			CreateMap<Country, CountryDTO>();
-
-			CreateMap<CountryDTO, Country>();
-			CreateMap<Country, CountryDTO>();
-
-			CreateMap<CountryDTO, Country>();
-			CreateMap<Country, CountryDTO>();
-
 			CreateMap<DepartureCityDTO, DepartureCity>();
 			CreateMap<DepartureCity, DepartureCityDTO>();
 
