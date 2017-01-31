@@ -41,7 +41,7 @@ namespace SolnTourCore.Business.Services.Implementations
 
 		public void Update(CountryDTO item)
 		{
-		    Country country = _countryRepository.Get(item.CountryId);
+		    var country = _countryRepository.Get(item.CountryId);
 		    country.CountryName = item.CountryName;
 			_countryRepository.Update(country);
 		}
