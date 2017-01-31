@@ -28,7 +28,7 @@ namespace SolnTourCore.Business.Services.Implementations
         public void Create(AccomodationDTO item)
         {
             _accomodationRepository.Create(AutoMapper.Mapper.Map<Accomodation>
-                (new Accomodation
+                (new AccomodationDTO
                 {
                     AccomodationId = _accomodationRepository.GetAll().Count() + 1,
                     AccomodationName = item.AccomodationName,
