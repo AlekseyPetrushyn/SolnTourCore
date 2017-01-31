@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -30,13 +28,13 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(DiscountDTO item)
         {
-            Discount discount = new Discount
-            {
-                DiscountId = _repository.GetAll().Count() + 1,
-                DiscountName = item.DiscountName,
-                Percent = item.Percent
-            };
-            _repository.Create(discount);
+            _repository.Create(AutoMapper.Mapper.Map<Discount>
+                (new DiscountDTO
+                {
+                    DiscountId = _repository.GetAll().Count() + 1,
+                    DiscountName = item.DiscountName,
+                    Percent = item.Percent
+                }));
         }
 
         public void Update(DiscountDTO item)
