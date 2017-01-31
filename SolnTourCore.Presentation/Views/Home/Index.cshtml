@@ -3,16 +3,27 @@
 	ViewData["Title"] = "Home Page";
 }
 
+<p>
+    <label for="country">Countries</label>
+    <select name="country">
+        @foreach (var item in Model)
+        {
+            <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
+        }
+    </select>
+</p>
+<hr>
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
     <p>
-        <label for="country">Countries</label>
-        <select name="country">
-            @foreach (var item in Model)
-            {
-                <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
-            }
-        </select>
+        <label>CountryId</label><br/>
+        <input type="text" name="countryName"/>
     </p>
-
+    <p>
+        <input type="submit" value="Create country!"/>
+    </p>
+}
+<hr>
 @using (Html.BeginForm("Update", "Home", FormMethod.Post))
 {
     <p>
@@ -20,11 +31,22 @@
         <input type="text" name="countryIdLast"/>
     </p>
     <p>
-        <label>CountryNewName</label>
+        <label>CountryNewName</label><br/>
         <input type="text" name="countryNewName"/>
     </p>
     <p>
         <input type="submit" value="Update country!"/>
+    </p>
+}
+<hr>
+@using (Html.BeginForm("Delete", "Home", FormMethod.Post))
+{
+    <p>
+        <label>CountryId</label><br/>
+        <input type="text" name="countryId"/>
+    </p>
+    <p>
+        <input type="submit" value="Delete country!"/>
     </p>
 }
 

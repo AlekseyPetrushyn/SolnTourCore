@@ -52,6 +52,19 @@ namespace SolnTourCore.Presentation.Controllers
             return RedirectToAction(nameof(HomeController.Index));
 	    }
 
+	    [HttpPost]
+	    public ActionResult Create(string countryName)
+	    {
+	        CountryViewModel cnt = new CountryViewModel
+	        {
+                CountryId = 1,
+                CountryName = countryName
+	        };
+	        var ctt = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(cnt);
+            _countryService.Create(ctt);
+	        return RedirectToAction(nameof(HomeController.Index));
+	    }
+
 		public IActionResult About()
 		{
 			ViewData["Message"] = "Your application description page.";
