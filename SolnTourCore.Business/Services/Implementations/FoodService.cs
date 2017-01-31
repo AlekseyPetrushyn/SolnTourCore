@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -30,13 +28,13 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(FoodDTO item)
         {
-            Food food = new Food
-            {
-                FoodId = _foodRepository.GetAll().Count() + 1,
-                FoodName = item.FoodName,
-                Description = item.Description
-            };
-            _foodRepository.Create(food);
+            _foodRepository.Create(AutoMapper.Mapper.Map<Food>
+                (new FoodDTO
+                {
+                    FoodId = _foodRepository.GetAll().Count() + 1,
+                    FoodName = item.FoodName,
+                    Description = item.Description
+                }));
         }
 
         public void Update(FoodDTO item)
