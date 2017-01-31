@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
-using SolnTourCore.Business.Services.Interfaces;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
 using SolnTourCore.DataAccess.Interfaces;
@@ -31,19 +28,20 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(HotelDTO item)
         {
-            Hotel hotel = new Hotel
-            {
-                HotelId = _hotelRepository.GetAll().Count() +1,
-                PlaceId = item.PlaceId,
-                HotelName = item.HotelName,
-                HotelCategoryId = item.HotelCategoryId,
-                FoodId = item.FoodId,
-                RoomTypeId = item.RoomTypeId,
-                AccomodationId = item.AccomodationId,
-                LocationId = item.LocationId,
-                RecreationId = item.RecreationId,
-                Price = item.Price
-            };
+            _hotelRepository.Create(AutoMapper.Mapper.Map<Hotel>
+                (new HotelDTO
+                {
+                    HotelId = _hotelRepository.GetAll().Count() + 1,
+                    PlaceId = item.PlaceId,
+                    HotelName = item.HotelName,
+                    HotelCategoryId = item.HotelCategoryId,
+                    FoodId = item.FoodId,
+                    RoomTypeId = item.RoomTypeId,
+                    AccomodationId = item.AccomodationId,
+                    LocationId = item.LocationId,
+                    RecreationId = item.RecreationId,
+                    Price = item.Price
+                }));
         }
 
         public void Update(HotelDTO item)
