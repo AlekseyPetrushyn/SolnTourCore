@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
-using SolnTourCore.Business.Services.Interfaces;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
 using SolnTourCore.DataAccess.Interfaces;
@@ -31,13 +28,13 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(RecreationDTO item)
         {
-            Recreation recreation = new Recreation
-            {
-                RecreationId = _recreationRepository.GetAll().Count() + 1,
-                RecreationName = item.RecreationName,
-                Description = item.Description
-            };
-            _recreationRepository.Create(recreation);
+            _recreationRepository.Create(AutoMapper.Mapper.Map<Recreation>
+                (new RecreationDTO
+                {
+                    RecreationId = _recreationRepository.GetAll().Count() + 1,
+                    RecreationName = item.RecreationName,
+                    Description = item.Description
+                }));
         }
 
         public void Update(RecreationDTO item)
