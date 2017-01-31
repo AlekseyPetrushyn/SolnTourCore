@@ -30,12 +30,13 @@ namespace SolnTourCore.Business.Services.Implementations
 
 		public void Create(CountryDTO item)
 		{
-			Country country = new Country
-			{
-				CountryId = _countryRepository.GetAll().Count() + 1,
-				CountryName = item.CountryName
-			};
-			_countryRepository.Create(country);
+            _countryRepository.Create(AutoMapper.Mapper.Map<Country>
+                (new CountryDTO
+                    {
+                        CountryId = _countryRepository.GetAll().Count() + 1,
+                        CountryName = item.CountryName
+                    }
+                ));
 		}
 
 		public void Update(CountryDTO item)
