@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
