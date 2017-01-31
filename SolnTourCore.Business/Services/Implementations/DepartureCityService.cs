@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -30,13 +28,13 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(DepartureCityDTO item)
         {
-            DepartureCity city = new DepartureCity
-            {
-                CityId = _departureCityRepository.GetAll().Count() + 1,
-                CityName = item.CityName,
-                CountryId = item.CountryId
-            };
-            _departureCityRepository.Create(city);
+            _departureCityRepository.Create(AutoMapper.Mapper.Map<DepartureCity>
+                (new DepartureCityDTO
+                {
+                    CityId = _departureCityRepository.GetAll().Count() + 1,
+                    CityName = item.CityName,
+                    CountryId = item.CountryId
+                }));
         }
 
         public void Update(DepartureCityDTO item)
