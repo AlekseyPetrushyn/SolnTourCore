@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -30,13 +28,14 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(AccessLevelDTO item)
         {
-            AccessLevel level = new AccessLevel
-            {
-                AccessId = _repository.GetAll().Count() + 1,
-                AccessName = item.AccessName,
-                Description = item.Description
-            };
-            _repository.Create(level);
+            _repository.Create(AutoMapper.Mapper.Map<AccessLevel>
+                (new AccessLevelDTO
+                {
+                    AccessId = _repository.GetAll().Count() + 1,
+                    AccessName = item.AccessName,
+                    Description = item.Description
+                }
+                ));
         }
 
         public void Update(AccessLevelDTO item)
