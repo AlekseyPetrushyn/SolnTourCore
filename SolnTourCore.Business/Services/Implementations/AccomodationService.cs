@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -29,13 +27,14 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(AccomodationDTO item)
         {
-            Accomodation accomodation = new Accomodation
-            {
-                AccomodationId = _accomodationRepository.GetAll().Count() + 1,
-                AccomodationName = item.AccomodationName,
-                Description = item.Description
-            };
-            _accomodationRepository.Create(accomodation);
+            _accomodationRepository.Create(AutoMapper.Mapper.Map<Accomodation>
+                (new Accomodation
+                {
+                    AccomodationId = _accomodationRepository.GetAll().Count() + 1,
+                    AccomodationName = item.AccomodationName,
+                    Description = item.Description
+                }
+                ));
         }
 
         public void Update(AccomodationDTO item)
