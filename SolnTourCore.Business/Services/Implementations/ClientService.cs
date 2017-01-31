@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
 using SolnTourCore.DataAccess.Entities;
@@ -30,21 +28,21 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public void Create(ClientDTO item)
         {
-            Client client = new Client
-            {
-                ClientId = _repository.GetAll().Count() + 1,
-                SecondName = item.SecondName,
-                FirstName = item.FirstName,
-                Patronymic = item.Patronymic,
-                BirthDay = item.BirthDay,
-                Address = item.Address,
-                MobilNumber = item.MobilNumber,
-                Email = item.Email,
-                DiscountId = item.DiscountId,
-                Login = item.Login,
-                Password = item.Password
-            };
-            _repository.Create(client);
+            _repository.Create(AutoMapper.Mapper.Map<Client>
+                (new ClientDTO
+                {
+                    ClientId = _repository.GetAll().Count() + 1,
+                    SecondName = item.SecondName,
+                    FirstName = item.FirstName,
+                    Patronymic = item.Patronymic,
+                    BirthDay = item.BirthDay,
+                    Address = item.Address,
+                    MobilNumber = item.MobilNumber,
+                    Email = item.Email,
+                    DiscountId = item.DiscountId,
+                    Login = item.Login,
+                    Password = item.Password
+                }));
         }
 
         public void Update(ClientDTO item)
