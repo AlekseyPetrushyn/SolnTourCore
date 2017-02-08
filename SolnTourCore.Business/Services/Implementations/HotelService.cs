@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
@@ -62,6 +63,25 @@ namespace SolnTourCore.Business.Services.Implementations
         public void Delete(int id)
         {
             _hotelRepository.Delete(id);
+        }
+
+            //найдём самый догорой отель
+        public HotelDTO MaxPriceHotel(string country)
+        {
+
+            IEnumerable<HotelDTO> hotels =
+                AutoMapper.Mapper.Map<IEnumerable<Hotel>, List<HotelDTO>>(_hotelRepository.Find(h => h.Place.Country.CountryName == country));  //все отели в заданной стране
+            hotels.OrderBy(h => h.Price);       //сортируем по взозрастанию цены
+
+            return hotels.Last();
+        }
+
+        //найдём самый дешёвый отель
+        public HotelDTO MinPriceHotel(string country)
+        {
+
+
+            return null;
         }
     }
 }
