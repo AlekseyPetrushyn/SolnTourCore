@@ -66,12 +66,12 @@ namespace SolnTourCore.Business.Services.Implementations
         }
 
             //найдём самый догорой отель
-        public HotelDTO MaxPriceHotel(string country)
+        public HotelDTO MaxPriceHotel(string countryName)
         {
 
             IEnumerable<HotelDTO> hotels =
-                AutoMapper.Mapper.Map<IEnumerable<Hotel>, List<HotelDTO>>(_hotelRepository.Find(h => h.Place.Country.CountryName == country));  //все отели в заданной стране
-            hotels.OrderBy(h => h.Price);       //сортируем по взозрастанию цены
+                AutoMapper.Mapper.Map<IEnumerable<Hotel>, List<HotelDTO>>(_hotelRepository.Find(h => h.Place.Country.CountryName == countryName));  //все отели в заданной стране
+            hotels.OrderBy(h => h.Price);       //сортируем по возрастанию цены
 
             return hotels.Last();
         }
