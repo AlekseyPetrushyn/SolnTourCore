@@ -6,7 +6,7 @@ using SolnTourCore.Business.DTO;
 
 namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
-    interface ITransferService : IService<TransferDTO>
+    public interface ITransferService : IService<TransferDTO>
     {
 
     }
