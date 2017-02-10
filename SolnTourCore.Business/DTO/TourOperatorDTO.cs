@@ -11,5 +11,8 @@ namespace SolnTourCore.Business.DTO
 		public string OperatorName { get; set; }
 		public int AdditionalServiceId { get; set; }
 		public int TransferId { get; set; }
+
+	    public AdditionalServiceDTO AdditionalService { get; set; }
+	    public TransferDTO Transfer { get; set; }
 	}
 }

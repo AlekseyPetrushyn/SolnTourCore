@@ -10,5 +10,7 @@ namespace SolnTourCore.Business.DTO
 		public int PlaceId { get; set; }
 		public string PlaceName { get; set; }
 		public int CountryId { get; set; }
+
+        public CountryDTO Country { get; set; }
 	}
 }

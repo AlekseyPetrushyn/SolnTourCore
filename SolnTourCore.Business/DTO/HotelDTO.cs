@@ -17,5 +17,13 @@ namespace SolnTourCore.Business.DTO
 		public int LocationId { get; set; }
 		public int RecreationId { get; set; }
 		public decimal Price { get; set; }
+
+	    public PlaceDTO Place { get; set; }
+	    public HotelCategoryDTO HotelCategory { get; set; }
+	    public FoodDTO Food { get; set; }
+	    public RoomTypeDTO RoomType { get; set; }
+	    public AccomodationDTO Accomodation { get; set; }
+	    public LocationDTO Location { get; set; }
+	    public RecreationDTO Recreation { get; set; }
 	}
 }
