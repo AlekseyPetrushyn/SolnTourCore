@@ -75,9 +75,28 @@ namespace SolnTourCore.Presentation
 
 				// add dependency injection from Business layer
 			services.AddScoped<ICountryService, CountryService>();
+		    services.AddScoped<IHotelService, HotelService>();
+		    services.AddScoped<IPlaceService, PlaceService>();
+		    services.AddScoped<IAccomodationService, AccomodationService>();
+		    services.AddScoped<IHotelCategoryService, HotelCategoryService>();
+            services.AddScoped<IRoomTypeService, RoomTypeService>();
+            services.AddScoped<IFoodService, FoodService>();
+            services.AddScoped<ILocationService, LocationService>();
+            services.AddScoped<IRecreationService, RecreationService>();
+            services.AddScoped<ITransportService, TransportService>();
+            services.AddScoped<IDepartureCityService, DepartureCityService>();
+            services.AddScoped<IDestinationCityService, DestinationCityService>();
+            services.AddScoped<ITransferService, TransferService>();
+            services.AddScoped<IAdditionalServiceService, AdditionalServiceService>();
+            services.AddScoped<ITourOperatorService, TourOperatorService>();
+            services.AddScoped<ITourService, TourService>();
+            services.AddScoped<IDiscountService, DiscountService>();
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IAccessLevelService, AccessLevelService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IOrderService, OrderService>();
 
-
-		}
+        }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
