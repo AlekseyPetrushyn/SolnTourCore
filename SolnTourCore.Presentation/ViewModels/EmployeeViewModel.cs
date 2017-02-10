@@ -15,6 +15,7 @@ namespace SolnTourCore.Presentation.ViewModels
         public string Address { get; set; }
         public string MobilNumber { get; set; }
         public string WorkNumber { get; set; }
+        public AccessLevelViewModel AccessLevel { get; set; }
         public int AccessId { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

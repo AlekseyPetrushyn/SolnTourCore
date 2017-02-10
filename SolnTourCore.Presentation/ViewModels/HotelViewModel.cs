@@ -17,5 +17,13 @@ namespace SolnTourCore.Presentation.ViewModels
         public int LocationId { get; set; }
         public int RecreationId { get; set; }
         public decimal Price { get; set; }
+
+        public PlaceViewModel Place { get; set; }
+        public HotelCategoryViewModel HotelCategory { get; set; }
+        public FoodViewModel Food { get; set; }
+        public RoomTypeViewModel RoomType { get; set; }
+        public AccomodationViewModel Accomodation { get; set; }
+        public LocationViewModel Location { get; set; }
+        public RecreationViewModel Recreation { get; set; }
     }
 }

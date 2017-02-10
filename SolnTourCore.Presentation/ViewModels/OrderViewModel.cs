@@ -12,5 +12,9 @@ namespace SolnTourCore.Presentation.ViewModels
 		public int ClientId { get; set; }
 		public int EmployeeId { get; set; }
 		public decimal OrderPrice { get; set; }
+
+        public TourViewModel Tour { get; set; }
+        public ClientViewModel Client { get; set; }
+        public EmployeeViewModel Employee { get; set; }
     }
 }

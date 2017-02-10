@@ -11,5 +11,8 @@ namespace SolnTourCore.Presentation.ViewModels
         public string OperatorName { get; set; }
         public int AdditionalServiceId { get; set; }
         public int TransferId { get; set; }
+
+        public AdditionalServiceViewModel AdditionalService { get; set; }
+        public TransferViewModel Transfer { get; set; }
     }
 }

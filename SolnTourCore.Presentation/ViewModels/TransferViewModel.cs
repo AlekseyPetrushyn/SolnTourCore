@@ -12,5 +12,9 @@ namespace SolnTourCore.Presentation.ViewModels
         public int DepartureCityId { get; set; }
         public int DestinationCityId { get; set; }
         public decimal Price { get; set; }
+
+        public TransportViewModel Transport { get; set; }
+        public DepartureCityViewModel DepartureCity { get; set; }
+        public DestinationCityViewModel DestinationCity { get; set; }
     }
 }

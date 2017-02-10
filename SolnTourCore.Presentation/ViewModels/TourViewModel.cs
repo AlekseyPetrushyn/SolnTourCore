@@ -12,5 +12,8 @@ namespace SolnTourCore.Presentation.ViewModels
         public int HotelId { get; set; }
         public DateTime DepartureDate { get; set; }
         public DateTime DestinationDate { get; set; }
+
+        public TourOperatorViewModel TourOperator { get; set; }
+        public HotelViewModel Hotel { get; set; }
     }
 }
