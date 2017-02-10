@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,17 +19,31 @@ namespace SolnTourCore.Presentation.Controllers
 	public class HomeController : Controller
 	{
 		private ICountryService _countryService;
+	    private IHotelService _hotelService;
+	    private IPlaceService _placeService;
 
-		public HomeController(IRepository<Hotel> hotelRepository, ICountryService countryService)
+		public HomeController(IRepository<Hotel> hotelRepository, ICountryService countryService, IHotelService hotelService
+            , IPlaceService placeService)
 		{
 			_countryService = countryService;
+		    _hotelService = hotelService;
+		    _placeService = placeService;
+
 		}
-		[HttpGet]
+		//[HttpGet]
 		public IActionResult Index()
 		{
-			IEnumerable<CountryDTO> item = _countryService.GetAll();
-			var country = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(item);
-			return View(country);
+            // добавим вывод ввсего что есть в Местах для теста
+
+		    IEnumerable<PlaceDTO> items = _placeService.GetAll();
+		    var placies = AutoMapper.Mapper.Map<IEnumerable<PlaceDTO>, List<PlaceViewModel>>(items);
+
+
+			//IEnumerable<HotelDTO> items = _hotelService.GetAll();
+			//var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
+		 //   var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
+		 //   ViewBag.MaxSpain = maxPriceSpain;
+			return View(placies/*hotels*/);
 		}
 
 		[HttpPost]

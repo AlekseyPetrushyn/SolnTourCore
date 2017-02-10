@@ -1,8 +1,31 @@
-﻿@model IEnumerable<SolnTourCore.Presentation.ViewModels.CountryViewModel>
+﻿@using SolnTourCore.Presentation.ViewModels
+@model List<PlaceViewModel>
 @{
 	ViewData["Title"] = "Home Page";
     Layout = "_TourLayout";
+    //HotelViewModel maxSpain = ViewBag.MaxSpain;
 }
+
+
+
+<table>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.PlaceId)</td>
+            <td>@Html.DisplayFor(modelItem => item.PlaceName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Country.CountryId)</td>
+            <td>@Html.DisplayFor(modelItem => item.Country.CountryName)</td>
+
+        </tr>
+
+    }
+</table>
+
+
+
+
 
 
 
@@ -10,7 +33,7 @@
     <ul class="slides">
         <li>
             <div class="overlay"></div>
-            <img src=@Url.Content("MainLayout/images/templatemo_slide_1.jpg") alt="Special 1">
+            <img src=@Url.Content("~/MainLayout/images/templatemo_slide_1.jpg") alt="Special 1">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
@@ -30,12 +53,12 @@
         </li>
         <li>
             <div class="overlay"></div>
-            <img src=@Url.Content("MainLayout/images/templatemo_slide_2.jpg") alt="Special 2">
+            <img src=@Url.Content("~/MainLayout/images/templatemo_slide_2.jpg") alt="Special 2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$12,380</span>
+                            <span class="price">@*@maxSpain.Price*@ $</span>
                             <h3 class="title">Bercelona, Spain</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas.</p>
                             <a href="#" class="slider-btn">Reserve Now</a>
@@ -46,7 +69,7 @@
         </li>
         <li>
             <div class="overlay"></div>
-            <img src=@Url.Content("MainLayout/images/templatemo_slide_3.jpg") alt="Special 3">
+            <img src=@Url.Content("~/MainLayout/images/templatemo_slide_3.jpg") alt="Special 3">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
@@ -74,7 +97,7 @@
                     <div class="title">
                         <h4>Italy</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_1.jpg") alt="destination 1">
+                    <img src=@Url.Content("~/MainLayout/images/destination_1.jpg") alt="destination 1">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Rome, Milan, Naples</h5>
@@ -87,7 +110,7 @@
                     <div class="title">
                         <h4>France</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_2.jpg") alt="destination 2">
+                    <img src=@Url.Content("~/MainLayout/images/destination_2.jpg") alt="destination 2">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Paris, Marseille, Lyon</h5>
@@ -100,7 +123,7 @@
                     <div class="title">
                         <h4>Germany</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_3.jpg") alt="destination 3">
+                    <img src=@Url.Content("~/MainLayout/images/destination_3.jpg") alt="destination 3">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Berlin, Hamburg, Munich</h5>
@@ -113,7 +136,7 @@
                     <div class="title">
                         <h4>Spain</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_4.jpg") alt="destination 4">
+                    <img src=@Url.Content("~/MainLayout/images/destination_4.jpg") alt="destination 4">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Madrid, Bercelona, Valencia</h5>
@@ -126,7 +149,7 @@
                     <div class="title">
                         <h4>Netherlands</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_5.jpg") alt="destination 5">
+                    <img src=@Url.Content("~/MainLayout/images/destination_5.jpg") alt="destination 5">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Amsterdam, Delft, The Hague</h5>
@@ -139,7 +162,7 @@
                     <div class="title">
                         <h4>Switzerland</h4>
                     </div>
-                    <img src=@Url.Content("MainLayout/images/destination_6.jpg") alt="destination 6">
+                    <img src=@Url.Content("~/MainLayout/images/destination_6.jpg") alt="destination 6">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
                     <h5>Zürich, Geneva, Basel</h5>
