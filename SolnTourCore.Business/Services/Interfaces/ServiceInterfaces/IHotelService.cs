@@ -8,6 +8,6 @@ namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
 {
     public interface IHotelService : IService<HotelDTO>
     {
-
+        HotelDTO MaxPriceHotel(string countryName);
     }
 }
