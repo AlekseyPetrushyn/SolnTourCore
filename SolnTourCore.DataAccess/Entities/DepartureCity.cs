@@ -10,7 +10,7 @@ namespace SolnTourCore.DataAccess.Entities
 	public class DepartureCity
 	{
 		[Key, Column("city_id")]
-		public int CityId { get; set; }
+		public int DepartureCityId { get; set; }
 		[ForeignKey("CountryId")]
 		public Country Country { get; set; }
 		[Column("country_id")]

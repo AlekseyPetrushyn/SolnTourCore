@@ -14,7 +14,7 @@ namespace SolnTourCore.DataAccess.Entities
 		[ForeignKey("OperatorId")]
 		public TourOperator TourOperator { get; set; }
 		[Column("tour_operator_id")]
-		public int TourOperatorId { get; set; }
+		public int OperatorId { get; set; }
 		[ForeignKey("HotelId")]
 		public Hotel Hotel { get; set; }
 		[Column("hotel_id")]

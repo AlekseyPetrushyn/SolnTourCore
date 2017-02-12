@@ -16,7 +16,7 @@ namespace SolnTourCore.DataAccess.Entities
 		[ForeignKey("ServiceId")]
 		public AdditionalService AdditionalService { get; set; }
 		[Column("additional_service_id")]
-		public int AdditionalServiceId { get; set; }
+		public int ServiceId { get; set; }
 		[ForeignKey("TransferId")]
 		public Transfer Transfer { get; set; }
 		[Column("transfer_id")]

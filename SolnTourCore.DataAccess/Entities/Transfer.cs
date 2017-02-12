@@ -15,15 +15,15 @@ namespace SolnTourCore.DataAccess.Entities
 		public Transport Transport { get; set; }
 		[Column("transport_id")]
 		public int TransportId { get; set; }
-		[ForeignKey("CityId")]
+		[ForeignKey("DepartureCityId")]
 		public DepartureCity DepartureCity { get; set; }
 		[Column("departure_city_id")]
 		public int DepartureCityId { get; set; }
-		[ForeignKey("CityId")]
+		[ForeignKey("DestinationCityId")]
 		public DestinationCity DestinationCity { get; set; }
 		[Column("destination_city_id")]
 		public int DestinationCityId { get; set; }
-		[Column("price")]
+		[Column("transfer_price")]
 		public decimal Price { get; set; }
 
 		public IEnumerable<TourOperator> TourOperators { get; set; }
