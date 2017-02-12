@@ -42,7 +42,7 @@ namespace SolnTourCore.Business.Services.Implementations
         public void Update(TourDTO item)
         {
             var tour = _repository.Get(item.TourId);
-            tour.TourOperatorId = item.TourOperatorId;
+            tour.OperatorId = item.TourOperatorId;
             tour.HotelId = item.HotelId;
             tour.DepartureDate = item.DepartureDate;
             tour.DestinationDate = item.DestinationDate;

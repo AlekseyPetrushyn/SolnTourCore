@@ -42,7 +42,7 @@ namespace SolnTourCore.Business.Services.Implementations
         {
             var tourOperator = _repository.Get(item.OperatorId);
             tourOperator.OperatorName = item.OperatorName;
-            tourOperator.AdditionalServiceId = item.AdditionalServiceId;
+            tourOperator.ServiceId = item.AdditionalServiceId;
             tourOperator.TransferId = item.TransferId;
             _repository.Update(tourOperator);
         }
