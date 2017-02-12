@@ -21,6 +21,7 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		{
 			return
 				_context.hotels.Include(h => h.Place)
+                    .Include(h => h.Place.Country)
 					.Include(h => h.HotelCategory)
 					.Include(h => h.Food)
 					.Include(h => h.RoomType)
