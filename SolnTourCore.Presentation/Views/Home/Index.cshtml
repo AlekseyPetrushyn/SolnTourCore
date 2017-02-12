@@ -1,5 +1,5 @@
 ﻿@using SolnTourCore.Presentation.ViewModels
-@model List<PlaceViewModel>
+@model List<OrderViewModel>
 @{
 	ViewData["Title"] = "Home Page";
     Layout = "_TourLayout";
@@ -13,10 +13,11 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.PlaceId)</td>
-            <td>@Html.DisplayFor(modelItem => item.PlaceName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Country.CountryId)</td>
-            <td>@Html.DisplayFor(modelItem => item.Country.CountryName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Client.SecondName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.SecondName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tour.Hotel.Place.PlaceName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tour.TourOperator.OperatorName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tour.TourOperator.Transfer.Transport.TransportName)</td>
 
         </tr>
 

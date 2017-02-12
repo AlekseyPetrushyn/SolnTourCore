@@ -21,29 +21,34 @@ namespace SolnTourCore.Presentation.Controllers
 		private ICountryService _countryService;
 	    private IHotelService _hotelService;
 	    private IPlaceService _placeService;
+	    private ITourOperatorService _tourOperatorService;
+	    private IOrderService _orderService;
 
-		public HomeController(IRepository<Hotel> hotelRepository, ICountryService countryService, IHotelService hotelService
-            , IPlaceService placeService)
+		public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
+            , ITourOperatorService tourOperatorService, IOrderService orderService)
 		{
 			_countryService = countryService;
 		    _hotelService = hotelService;
 		    _placeService = placeService;
+            _tourOperatorService = tourOperatorService;
+		    _orderService = orderService;
 
 		}
 		//[HttpGet]
 		public IActionResult Index()
 		{
-            // добавим вывод ввсего что есть в Местах для теста
+            // добавим вывод ввсего что есть в Отелях для теста
 
-		    IEnumerable<PlaceDTO> items = _placeService.GetAll();
-		    var placies = AutoMapper.Mapper.Map<IEnumerable<PlaceDTO>, List<PlaceViewModel>>(items);
+		    IEnumerable<OrderDTO> items = _orderService.GetAll();
+		    var orders = AutoMapper.Mapper.Map<IEnumerable<OrderDTO>, List<OrderViewModel>>(items);
+
 
 
 			//IEnumerable<HotelDTO> items = _hotelService.GetAll();
 			//var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
 		 //   var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
 		 //   ViewBag.MaxSpain = maxPriceSpain;
-			return View(placies/*hotels*/);
+			return View(orders/*hotels*/);
 		}
 
 		[HttpPost]
