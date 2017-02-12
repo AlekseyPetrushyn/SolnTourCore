@@ -20,7 +20,12 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		public IEnumerable<TourOperator> GetAll()
 		{
 			return _context.tour_operators.Include(o => o.Transfer)
-				.Include(o => o.AdditionalService);
+                .Include(o => o.Transfer.DepartureCity)
+                .Include(o => o.Transfer.DepartureCity.Country)
+                .Include(o => o.Transfer.DestinationCity)
+                .Include(o => o.Transfer.DestinationCity.Country)
+                .Include(o => o.Transfer.Transport)
+                .Include(o => o.AdditionalService);
 		}
 
 		public TourOperator Get(int id)
