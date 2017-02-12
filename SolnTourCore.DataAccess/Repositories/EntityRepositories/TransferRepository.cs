@@ -20,8 +20,10 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		public IEnumerable<Transfer> GetAll()
 		{
 			return _context.transfers.Include(t => t.Transport)
-				.Include(t => t.DepartureCity)
-				.Include(t => t.DestinationCity);
+                .Include(t => t.DepartureCity)
+                .Include(t => t.DepartureCity.Country)
+                .Include(t => t.DestinationCity)
+                .Include(t => t.DestinationCity.Country); 
 		}
 
 		public Transfer Get(int id)
