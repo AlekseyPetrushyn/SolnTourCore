@@ -21,7 +21,24 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 		{
 			return _context.orders.Include(o => o.Employee)
 				.Include(o => o.Client)
-				.Include(o => o.Tour);
+				.Include(o => o.Tour)
+                .Include(o => o.Tour.Hotel)
+                .Include(o => o.Tour.Hotel.Place)
+                .Include(o => o.Tour.Hotel.Place.Country)
+                .Include(o => o.Tour.Hotel.Accomodation)
+                .Include(o => o.Tour.Hotel.Food)
+                .Include(o => o.Tour.Hotel.HotelCategory)
+                .Include(o => o.Tour.Hotel.Location)
+                .Include(o => o.Tour.Hotel.Recreation)
+                .Include(o => o.Tour.Hotel.RoomType)
+                .Include(o => o.Tour.TourOperator)
+                .Include(o => o.Tour.TourOperator.AdditionalService)
+                .Include(o => o.Tour.TourOperator.Transfer)
+                .Include(o => o.Tour.TourOperator.Transfer.DepartureCity)
+                .Include(o => o.Tour.TourOperator.Transfer.DepartureCity.Country)
+                .Include(o => o.Tour.TourOperator.Transfer.DestinationCity)
+                .Include(o => o.Tour.TourOperator.Transfer.DestinationCity.Country)
+                .Include(o => o.Tour.TourOperator.Transfer.Transport);
 		}
 
 		public Order Get(int id)
