@@ -1,32 +1,12 @@
 ﻿@using SolnTourCore.Presentation.ViewModels
-@model List<OrderViewModel>
+@model List<HotelViewModel>
 @{
-	ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page";
     Layout = "_TourLayout";
-    //HotelViewModel maxSpain = ViewBag.MaxSpain;
+    HotelViewModel maxItaly = ViewBag.MaxItaly;
+    HotelViewModel maxSpain = ViewBag.MaxSpain;
+    HotelViewModel maxThailand = ViewBag.MaxThailand;
 }
-
-
-
-<table>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Client.SecondName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Employee.SecondName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tour.Hotel.Place.PlaceName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tour.TourOperator.OperatorName)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tour.TourOperator.Transfer.Transport.TransportName)</td>
-
-        </tr>
-
-    }
-</table>
-
-
-
-
 
 
 
@@ -39,14 +19,10 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$8,450</span>
-                            <h3 class="title">Venice, Italy</h3>
-                            <p>
-                                Travel is free template by <span class="blue">template</span><span class="green">mo</span>. <br>
-                                All images used in this template are from
-                                <a rel="nofollow" href="http://unsplash.com">Unsplash</a>.
-                            </p>
-                            <a href="#" class="slider-btn">Pre-booking</a>
+                            <span class="price">$@maxItaly.Price.ToString("F2")</span>
+                            <h3 class="title">@maxItaly.Place.PlaceName, @maxItaly.Place.Country.CountryName</h3>
+                            <p title="@maxItaly.Location.Description">@maxItaly.Location.LocationName</p>
+                            <a href="#" class="slider-btn">Reserve Now</a>
                         </div>
                     </div>
                 </div>
@@ -59,9 +35,9 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">@*@maxSpain.Price*@ $</span>
-                            <h3 class="title">Bercelona, Spain</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas.</p>
+                            <span class="price">$@maxSpain.Price.ToString("F2")</span>
+                            <h3 class="title">@maxSpain.Place.PlaceName, @maxSpain.Place.Country.CountryName</h3>
+                            <p title="@maxSpain.Location.Description">@maxSpain.Location.LocationName</p>
                             <a href="#" class="slider-btn">Reserve Now</a>
                         </div>
                     </div>
@@ -75,10 +51,10 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$21,640</span>
-                            <h3 class="title">Basel, Switzerland</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum nibh sit amet felis mattis, eu convallis risus egestas.</p>
-                            <a href="#" class="slider-btn">Book Now</a>
+                            <span class="price">$@maxThailand.Price.ToString("F2")</span>
+                            <h3 class="title">@maxThailand.Place.PlaceName, @maxThailand.Place.Country.CountryName</h3>
+                            <p title="@maxThailand.Location.Description">@maxThailand.Location.LocationName</p>
+                            <a href="#" class="slider-btn">Reserve Now</a>
                         </div>
                     </div>
                 </div>

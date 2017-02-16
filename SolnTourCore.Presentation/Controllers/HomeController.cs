@@ -37,18 +37,18 @@ namespace SolnTourCore.Presentation.Controllers
 		//[HttpGet]
 		public IActionResult Index()
 		{
-            // добавим вывод ввсего что есть в Отелях для теста
-
-		    IEnumerable<OrderDTO> items = _orderService.GetAll();
-		    var orders = AutoMapper.Mapper.Map<IEnumerable<OrderDTO>, List<OrderViewModel>>(items);
 
 
+            IEnumerable<HotelDTO> items = _hotelService.GetAll();
+            var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
+            var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
+		    var maxPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Италия"));
+		    var maxPriceThailand = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Тайланд"));
 
-			//IEnumerable<HotelDTO> items = _hotelService.GetAll();
-			//var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
-		 //   var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
-		 //   ViewBag.MaxSpain = maxPriceSpain;
-			return View(orders/*hotels*/);
+            ViewBag.MaxSpain = maxPriceSpain;
+		    ViewBag.MaxItaly = maxPriceItaly;
+		    ViewBag.MaxThailand = maxPriceThailand;
+            return View(hotels);
 		}
 
 		[HttpPost]
