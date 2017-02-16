@@ -77,11 +77,12 @@ namespace SolnTourCore.Business.Services.Implementations
         }
 
         //найдём самый дешёвый отель
-        public HotelDTO MinPriceHotel(string country)
+        public HotelDTO MinPriceHotel(string countryName)
         {
-
-
-            return null;
+            IEnumerable<HotelDTO> hotels =
+                AutoMapper.Mapper.Map<IEnumerable<Hotel>, List<HotelDTO>>(_hotelRepository.Find(h => h.Place.Country.CountryName == countryName));
+            hotels.OrderBy(h => h.Price);
+            return hotels.First();
         }
     }
 }
