@@ -38,16 +38,29 @@ namespace SolnTourCore.Presentation.Controllers
 		public IActionResult Index()
 		{
 
-
             IEnumerable<HotelDTO> items = _hotelService.GetAll();
             var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
             var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
 		    var maxPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Италия"));
 		    var maxPriceThailand = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Тайланд"));
 
+            var minPriceTurkey = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Турция"));
+            var minPriceGreece = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Греция"));
+            var minPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
+            var minPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Италия"));
+            var minPriceBali = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Бали"));
+            var minPriceEgypt = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Египет"));
+
             ViewBag.MaxSpain = maxPriceSpain;
 		    ViewBag.MaxItaly = maxPriceItaly;
 		    ViewBag.MaxThailand = maxPriceThailand;
+
+		    ViewBag.MinTurkey = minPriceTurkey;
+            ViewBag.MinGreece = minPriceGreece;
+            ViewBag.MinSpain = minPriceSpain;
+            ViewBag.MinItaly = minPriceItaly;
+            ViewBag.MinBali = minPriceBali;
+            ViewBag.MinEgypt = minPriceEgypt;
             return View(hotels);
 		}
 
