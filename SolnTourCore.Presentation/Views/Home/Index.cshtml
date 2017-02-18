@@ -6,6 +6,13 @@
     HotelViewModel maxItaly = ViewBag.MaxItaly;
     HotelViewModel maxSpain = ViewBag.MaxSpain;
     HotelViewModel maxThailand = ViewBag.MaxThailand;
+
+    HotelViewModel minTurkey = ViewBag.MinTurkey;
+    HotelViewModel minGreece = ViewBag.MinGreece;
+    HotelViewModel minSpain = ViewBag.MinSpain;
+    HotelViewModel minItaly = ViewBag.MinItaly;
+    HotelViewModel minBali = ViewBag.MinBali;
+    HotelViewModel minEgypt = ViewBag.MinEgypt;
 }
 
 
@@ -63,8 +70,7 @@
     </ul>
 </div> <!-- /.flexslider -->
 
-
-
+<!------------------------------------------------------------------------------------------------------------------------->
 
 <div class="container">
     <div class="row">
@@ -72,19 +78,20 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
-                        <h4>Italy</h4>
+                        <h4>@minTurkey.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_1.jpg") alt="destination 1">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>Rome, Milan, Naples</h5>
-                    <span>SILVER HOTEL, 4 NIGHTS, 5 STARS</span>
-                    <a href="#" class="price-btn">$1,800 Book Now</a>
+                    <h5>@minTurkey.Place.PlaceName</h5>
+                    <span>@minTurkey.HotelName, @minTurkey.RoomType.RoomTypeName, @minTurkey.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@minTurkey.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
+                        
                         <h4>France</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_2.jpg") alt="destination 2">
@@ -98,6 +105,7 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
+                        
                         <h4>Germany</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_3.jpg") alt="destination 3">
@@ -111,6 +119,7 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
+                        
                         <h4>Spain</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_4.jpg") alt="destination 4">
@@ -124,6 +133,7 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
+                        
                         <h4>Netherlands</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_5.jpg") alt="destination 5">
@@ -137,6 +147,7 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
+                        
                         <h4>Switzerland</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_6.jpg") alt="destination 6">
