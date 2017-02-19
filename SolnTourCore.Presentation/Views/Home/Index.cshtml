@@ -92,14 +92,14 @@
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>France</h4>
+                        <h4>@minGreece.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_2.jpg") alt="destination 2">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>Paris, Marseille, Lyon</h5>
-                    <span>NEW PALACE, 5 NIGHTS, 5 STARS</span>
-                    <a href="#" class="price-btn">$2,300 Book Now</a>
+                    <h5>@minGreece.Place.PlaceName</h5>
+                    <span>@minGreece.HotelName, @minGreece.RoomType.RoomTypeName, @minGreece.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@minGreece.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
