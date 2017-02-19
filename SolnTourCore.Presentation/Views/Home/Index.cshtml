@@ -111,7 +111,7 @@
                     <img src=@Url.Content("~/MainLayout/images/destination_3.jpg") alt="destination 3">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minSpain.Place.Country.CountryName</h5>
+                    <h5>@minSpain.Place.PlaceName</h5>
                     <span>@minSpain.HotelName, @minSpain.RoomType.RoomTypeName, @minSpain.HotelCategory.HotelCategoryName</span>
                     <a href="#" class="price-btn">$@minSpain.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
@@ -120,14 +120,14 @@
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>Spain</h4>
+                        <h4>@minItaly.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_4.jpg") alt="destination 4">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>Madrid, Bercelona, Valencia</h5>
-                    <span>GOOD HOTEL, 4 NIGHTS, 6 STARS</span>
-                    <a href="#" class="price-btn">$4,800 Book Now</a>
+                    <h5>@minItaly.Place.PlaceName</h5>
+                    <span>@minItaly.HotelName, @minItaly.RoomType.RoomTypeName, @minItaly.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@minItaly.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
