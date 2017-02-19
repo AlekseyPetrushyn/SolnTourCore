@@ -134,14 +134,14 @@
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>Netherlands</h4>
+                        <h4>@minBali.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_5.jpg") alt="destination 5">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>Amsterdam, Delft, The Hague</h5>
-                    <span>BEST HOTEL, 6 NIGHTS, 7 STARS</span>
-                    <a href="#" class="price-btn">$5,600 Book Now</a>
+                    <h5>@minBali.Place.PlaceName</h5>
+                    <span>@minBali.HotelName, @minBali.RoomType.RoomTypeName, @minBali.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@minBali.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
