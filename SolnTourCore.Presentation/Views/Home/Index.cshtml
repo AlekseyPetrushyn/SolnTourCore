@@ -148,14 +148,14 @@
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>Switzerland</h4>
+                        <h4>@minEgypt</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_6.jpg") alt="destination 6">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>Zürich, Geneva, Basel</h5>
-                    <span>NEW HOTEL, 7 NIGHTS, 7 STARS</span>
-                    <a href="#" class="price-btn">$6,300 Book Now</a>
+                    <h5>@minEgypt.Place.PlaceName</h5>
+                    <span>@minEgypt.HotelName, @minEgypt.RoomType.RoomTypeName, @minEgypt.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@minEgypt.Price.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
         </div> <!-- /.our-listing -->
