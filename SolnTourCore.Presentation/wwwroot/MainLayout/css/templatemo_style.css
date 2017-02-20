@@ -419,16 +419,8 @@ h3.widget-title {
     left: 0;
 }
 
-#templatemo_services {
-    background: url(../images/templatemo_header_1.jpg);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center;
-}
-
-#templatemo_events {
-    background: url(../images/templatemo_header_2.jpg);
+#templatemo_search {
+    background: url(/MainLayout/images/templatemo_header_1.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
