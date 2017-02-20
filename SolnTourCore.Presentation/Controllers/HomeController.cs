@@ -98,6 +98,11 @@ namespace SolnTourCore.Presentation.Controllers
 	        return RedirectToAction(nameof(HomeController.Index));
 	    }
 
+	    public IActionResult Search()
+	    {
+	        return View();
+	    }
+
 		public IActionResult About()
 		{
 			ViewData["Message"] = "Your application description page.";
