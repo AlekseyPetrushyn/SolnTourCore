@@ -105,6 +105,10 @@ namespace SolnTourCore.Presentation.Controllers
             IEnumerable<HotelDTO> items = _hotelService.GetAll();
             var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
 
+            IEnumerable<CountryDTO> countryItems = _countryService.GetAll();
+            var countries = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(countryItems);
+            ViewBag.Countries = countries;  
+
 	        return View(hotels);
 	    }
 
