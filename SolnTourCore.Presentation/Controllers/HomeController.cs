@@ -34,12 +34,13 @@ namespace SolnTourCore.Presentation.Controllers
 		    _orderService = orderService;
 
 		}
-		//[HttpGet]
+		[HttpGet]
 		public IActionResult Index()
 		{
 
             IEnumerable<HotelDTO> items = _hotelService.GetAll();
             var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
+
             var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
 		    var maxPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Италия"));
 		    var maxPriceThailand = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Тайланд"));
@@ -98,9 +99,13 @@ namespace SolnTourCore.Presentation.Controllers
 	        return RedirectToAction(nameof(HomeController.Index));
 	    }
 
+        [HttpGet]
 	    public IActionResult Search()
-	    {
-	        return View();
+        {
+            IEnumerable<HotelDTO> items = _hotelService.GetAll();
+            var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
+
+	        return View(hotels);
 	    }
 
 		public IActionResult About()
