@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SolnTourCore.Business.DTO;
 using SolnTourCore.Business.Services.Interfaces.ServiceInterfaces;
@@ -107,7 +108,12 @@ namespace SolnTourCore.Presentation.Controllers
 
             IEnumerable<CountryDTO> countryItems = _countryService.GetAll();
             var countries = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(countryItems);
-            ViewBag.Countries = countries;  
+            ViewBag.Countries = countries;
+            ViewBag.CountriesTest = new SelectList(countries, "CountryName");
+
+            IEnumerable<PlaceDTO> placeItems = _placeService.GetAll();
+            var placies = AutoMapper.Mapper.Map<IEnumerable<PlaceDTO>, List<PlaceViewModel>>(placeItems);
+            ViewBag.Placies = placies;
 
 	        return View(hotels);
 	    }

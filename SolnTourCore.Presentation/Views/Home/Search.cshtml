@@ -1,7 +1,33 @@
-﻿@{
+﻿@using SolnTourCore.Presentation.ViewModels;
+@model List<HotelViewModel>
+@{
     ViewData["Title"] = "Tour Search";
     Layout = "_TourLayout";
+    List<CountryViewModel> counties = ViewBag.Countries;
+    List<PlaceViewModel> placies = ViewBag.Placies;
 }
 
 <div class="page-top" id="templatemo_search">
 </div> <!-- /.page-header -->
+
+
+@Html.DropDownList("country", ViewBag.CountriesTest as SelectList, "Выбирите страну для отдыха")
+
+<p>
+    <label for="country">Countries</label>
+    <select name="country">
+        @foreach (var item in counties)
+        {
+            <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
+        }
+    </select>
+</p>
+<p>
+    <label for="place">Placies</label>
+    <select name="place">
+        @foreach (var item in placies.Where(p => p.Country.CountryName == "Испания"))
+        {
+            <option value="@Html.DisplayFor(modelItem => item.PlaceName)">@Html.DisplayFor(modelItem => item.PlaceName)</option>
+        }
+    </select>
+</p>
