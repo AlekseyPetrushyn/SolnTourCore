@@ -427,6 +427,15 @@ h3.widget-title {
     background-position: center;
 }
 
+#templatemo_finding {
+    background: url(/MainLayout/images/templatemo_header_2.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+
 #templatemo_about {
     background: url(../images/templatemo_header_3.jpg);
     background-repeat: no-repeat;
