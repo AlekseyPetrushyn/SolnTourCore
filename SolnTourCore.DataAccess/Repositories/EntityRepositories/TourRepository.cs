@@ -32,7 +32,10 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
                 .Include(t => t.Hotel.HotelCategory)
                 .Include(t => t.Hotel.Location)
                 .Include(t => t.Hotel.Recreation)
-                .Include(t => t.Hotel.RoomType);
+                .Include(t => t.Hotel.RoomType)
+                .Include(t => t.Hotel.Place.Country)
+                .Include(t => t.Hotel.Place)
+                .Include(t => t.Hotel.Food);
 		}
 
 		public Tour Get(int id)
