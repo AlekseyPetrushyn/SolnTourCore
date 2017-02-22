@@ -13,7 +13,7 @@
 @using (Html.BeginForm("FindTour", "Home", FormMethod.Post))
 {
     <p>
-        <label for="country">Countries</label>
+        <label for="countryName">Countries</label>
         <select name="countryName">
             @foreach (var item in counties)
             {
@@ -22,7 +22,7 @@
         </select>
     </p>
     <p>
-        <label for="hotelCategory">Hote Categories</label>
+        <label for="hotelCategoryName">Hote Categories</label>
         <select name="hotelCategoryName">
             @foreach (var item in hotelCategories)
             {
