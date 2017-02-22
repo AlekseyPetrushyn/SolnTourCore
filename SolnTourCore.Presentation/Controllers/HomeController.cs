@@ -25,9 +25,11 @@ namespace SolnTourCore.Presentation.Controllers
 	    private ITourOperatorService _tourOperatorService;
 	    private IOrderService _orderService;
 	    private IHotelCategoryService _hotelCategoryService;
+	    private ITourService _tourService;
 
 		public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
-            , ITourOperatorService tourOperatorService, IOrderService orderService, IHotelCategoryService hotelCategoryService)
+            , ITourOperatorService tourOperatorService, IOrderService orderService, IHotelCategoryService hotelCategoryService
+            , ITourService tourService)
 		{
 			_countryService = countryService;
 		    _hotelService = hotelService;
@@ -35,6 +37,7 @@ namespace SolnTourCore.Presentation.Controllers
             _tourOperatorService = tourOperatorService;
 		    _orderService = orderService;
 		    _hotelCategoryService = hotelCategoryService;
+		    _tourService = tourService;
 
 		}
 		[HttpGet]
@@ -119,10 +122,13 @@ namespace SolnTourCore.Presentation.Controllers
 	        return View(hotels);
 	    }
 
-	    public IActionResult FindTour()
-	    {
+        [HttpPost]
+	    public IActionResult FindTour(string countryName/*, string hotelCategoryName*/)
+        {
+            IEnumerable<TourDTO> items = _tourService.FindTours("Греция" /*, hotelCategoryName*/);
+            var tours = AutoMapper.Mapper.Map<IEnumerable<TourDTO>, List<TourViewModel>>(items);
 
-	        return PartialView("_FindTour");
+	        return View(tours);
 	    }
 
 		public IActionResult About()
