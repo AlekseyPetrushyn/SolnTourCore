@@ -24,15 +24,17 @@ namespace SolnTourCore.Presentation.Controllers
 	    private IPlaceService _placeService;
 	    private ITourOperatorService _tourOperatorService;
 	    private IOrderService _orderService;
+	    private IHotelCategoryService _hotelCategoryService;
 
 		public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
-            , ITourOperatorService tourOperatorService, IOrderService orderService)
+            , ITourOperatorService tourOperatorService, IOrderService orderService, IHotelCategoryService hotelCategoryService)
 		{
 			_countryService = countryService;
 		    _hotelService = hotelService;
 		    _placeService = placeService;
             _tourOperatorService = tourOperatorService;
 		    _orderService = orderService;
+		    _hotelCategoryService = hotelCategoryService;
 
 		}
 		[HttpGet]
@@ -109,13 +111,18 @@ namespace SolnTourCore.Presentation.Controllers
             IEnumerable<CountryDTO> countryItems = _countryService.GetAll();
             var countries = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(countryItems);
             ViewBag.Countries = countries;
-            ViewBag.CountriesTest = new SelectList(countries, "CountryName");
 
-            IEnumerable<PlaceDTO> placeItems = _placeService.GetAll();
-            var placies = AutoMapper.Mapper.Map<IEnumerable<PlaceDTO>, List<PlaceViewModel>>(placeItems);
-            ViewBag.Placies = placies;
+            IEnumerable<HotelCategoryDTO> hotelCategoryItems = _hotelCategoryService.GetAll();
+            var hotelCategories = AutoMapper.Mapper.Map<IEnumerable<HotelCategoryDTO>, List<HotelCategoryViewModel>>(hotelCategoryItems);
+            ViewBag.HotelCategories = hotelCategories;
 
 	        return View(hotels);
+	    }
+
+	    public IActionResult FindTour()
+	    {
+
+	        return PartialView("_FindTour");
 	    }
 
 		public IActionResult About()
