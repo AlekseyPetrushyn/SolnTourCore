@@ -53,5 +53,12 @@ namespace SolnTourCore.Business.Services.Implementations
         {
             _repository.Delete(id);
         }
+
+        public IEnumerable<TourDTO> FindTours(string countryName/*, string hotelCategoryName*/)
+        {
+            IEnumerable<TourDTO> tours =
+                AutoMapper.Mapper.Map<IEnumerable<Tour>, List<TourDTO>>(_repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName));
+            return tours;
+        }
     }
 }
