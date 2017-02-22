@@ -14,7 +14,7 @@
 {
     <p>
         <label for="country">Countries</label>
-        <select name="country">
+        <select name="countryName">
             @foreach (var item in counties)
             {
                 <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
@@ -23,7 +23,7 @@
     </p>
     <p>
         <label for="hotelCategory">Hote Categories</label>
-        <select name="hotelCategory">
+        <select name="hotelCategoryName">
             @foreach (var item in hotelCategories)
             {
                 <option value="@Html.DisplayFor(modelItem => item.HotelCategoryName)">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
