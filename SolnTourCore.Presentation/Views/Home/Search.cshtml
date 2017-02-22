@@ -4,30 +4,33 @@
     ViewData["Title"] = "Tour Search";
     Layout = "_TourLayout";
     List<CountryViewModel> counties = ViewBag.Countries;
-    List<PlaceViewModel> placies = ViewBag.Placies;
+    List<HotelCategoryViewModel> hotelCategories = ViewBag.HotelCategories;
 }
 
 <div class="page-top" id="templatemo_search">
 </div> <!-- /.page-header -->
 
-
-@Html.DropDownList("country", ViewBag.CountriesTest as SelectList, "Выбирите страну для отдыха")
-
-<p>
-    <label for="country">Countries</label>
-    <select name="country">
-        @foreach (var item in counties)
-        {
-            <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
-        }
-    </select>
-</p>
-<p>
-    <label for="place">Placies</label>
-    <select name="place">
-        @foreach (var item in placies.Where(p => p.Country.CountryName == "Испания"))
-        {
-            <option value="@Html.DisplayFor(modelItem => item.PlaceName)">@Html.DisplayFor(modelItem => item.PlaceName)</option>
-        }
-    </select>
-</p>
+@using (Html.BeginForm("FindTour", "Home", FormMethod.Post))
+{
+    <p>
+        <label for="country">Countries</label>
+        <select name="country">
+            @foreach (var item in counties)
+            {
+                <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
+            }
+        </select>
+    </p>
+    <p>
+        <label for="hotelCategory">Hote Categories</label>
+        <select name="hotelCategory">
+            @foreach (var item in hotelCategories)
+            {
+                <option value="@Html.DisplayFor(modelItem => item.HotelCategoryName)">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
+            }
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Поиск тура"/>
+    </p>
+}
