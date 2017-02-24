@@ -17,7 +17,7 @@
         <select name="countryName">
             @foreach (var item in counties)
             {
-                <option value="@Html.DisplayFor(modelItem => item.CountryName)">@Html.DisplayFor(modelItem => item.CountryName)</option>
+                <option value="@item.CountryName">@Html.DisplayFor(modelItem => item.CountryName)</option>
             }
         </select>
     </p>
@@ -26,11 +26,12 @@
         <select name="hotelCategoryName">
             @foreach (var item in hotelCategories)
             {
-                <option value="@Html.DisplayFor(modelItem => item.HotelCategoryName)">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
+                <option value="@item.HotelCategoryName">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
             }
         </select>
     </p>
     <p>
         <input type="submit" value="Поиск тура"/>
     </p>
+
 }
