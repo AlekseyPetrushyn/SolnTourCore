@@ -1,4 +1,5 @@
-﻿@using SolnTourCore.Presentation.ViewModels;
+﻿@using System.Globalization
+@using SolnTourCore.Presentation.ViewModels;
 @model List<TourViewModel>
 @{
     ViewData["Title"] = "Results";
@@ -20,22 +21,48 @@
             <div class="col-md-6">
                 <!-- first column -->
                 <div class="widget-item">
-                    <h3 class="widget-title">Результаты поиска:</h3>
+                    <h3 class="widget-title">Результаты поиска запросу :</h3>
+                <h4 class="consult-title">Страна - @ViewBag.CountryName, Категория отеля - @ViewBag.HotelCategoryName</h4>
 
-                    <h4 class="consult-title"> Мы предлагаем Вам только самое лучшее!</h4>
-                    <table>
+                    <h4 class="consult-title"> Найдено туров: @Model.Count</h4>
+                    <table class="find-results-content">
+                        <tr class="result-table-head">
+                            <td>Place Name</td>
+                            <td>Hotel Name</td>
+                            <td>Food Type Name</td>
+                            <td>Accomodation Type Name</td>
+                            <td>Location Type Name</td>
+                            <td>Recreation Type Name</td>
+                            <td>Tour Operator Name</td>
+                            <td>Departure City</td>
+                            <td>Departure Date</td>
+                            <td>Destination City</td>
+                            <td>Destination Date</td>
+                            <td>Additional Service Name</td>
+                            <td>Total Price, $</td>
+
+                        </tr>
 
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr class="result-table-content">
                                 <td>@Html.DisplayFor(modelItem => item.Hotel.Place.PlaceName)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Food.FoodName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Accomodation.AccomodationName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Location.LocationName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Recreation.RecreationName)</td>
                                 <td>@Html.DisplayFor(modelItem => item.TourOperator.OperatorName)</td>
-                                
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DepartureCity.CityName)</td>
+                                <td>@item.DepartureDate.ToString("D")</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DestinationCity.CityName)</td>
+                                <td>@item.DestinationDate.ToString("D")</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.AdditionalService.ServiceName)</td>
+                                <td>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</td>
                             </tr>
 
                         }
-                        @if (Model == null)
+                        @if (Model.Count == 0)
                         {
                             <h4 class="consult-title"> К сожалению подходящего тура ещё нет!</h4>
                             <h4 class="consult-title"> Измените параметры поиска.</h4>
