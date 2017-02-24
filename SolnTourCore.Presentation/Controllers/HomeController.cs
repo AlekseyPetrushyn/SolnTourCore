@@ -119,15 +119,20 @@ namespace SolnTourCore.Presentation.Controllers
             var hotelCategories = AutoMapper.Mapper.Map<IEnumerable<HotelCategoryDTO>, List<HotelCategoryViewModel>>(hotelCategoryItems);
             ViewBag.HotelCategories = hotelCategories;
 
-	        return View(hotels);
+            return View(hotels);
 	    }
 
         [HttpPost]
-	    public IActionResult FindTour(string countryName/*, string hotelCategoryName*/)
+	    public IActionResult FindTour(string countryName, string hotelCategoryName)
         {
-            IEnumerable<TourDTO> items = _tourService.FindTours("Греция" /*, hotelCategoryName*/);
+            IEnumerable<TourDTO> items = _tourService.FindTours(countryName, hotelCategoryName);
             var tours = AutoMapper.Mapper.Map<IEnumerable<TourDTO>, List<TourViewModel>>(items);
 
+
+
+
+            ViewBag.CountryName = countryName;
+            ViewBag.HotelCategoryName = hotelCategoryName;
 	        return View(tours);
 	    }
 
