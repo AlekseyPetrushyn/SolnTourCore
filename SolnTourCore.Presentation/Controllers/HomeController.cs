@@ -26,10 +26,12 @@ namespace SolnTourCore.Presentation.Controllers
 	    private IOrderService _orderService;
 	    private IHotelCategoryService _hotelCategoryService;
 	    private ITourService _tourService;
+	    private IDepartureCityService _departureCityService;
+	    private IRecreationService _recreationService;
 
 		public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
             , ITourOperatorService tourOperatorService, IOrderService orderService, IHotelCategoryService hotelCategoryService
-            , ITourService tourService)
+            , ITourService tourService, IDepartureCityService departureCityService, IRecreationService recreationService)
 		{
 			_countryService = countryService;
 		    _hotelService = hotelService;
@@ -38,6 +40,8 @@ namespace SolnTourCore.Presentation.Controllers
 		    _orderService = orderService;
 		    _hotelCategoryService = hotelCategoryService;
 		    _tourService = tourService;
+		    _departureCityService = departureCityService;
+		    _recreationService = recreationService;
 
 		}
 		[HttpGet]
@@ -127,9 +131,14 @@ namespace SolnTourCore.Presentation.Controllers
             var countries = AutoMapper.Mapper.Map<IEnumerable<CountryDTO>, List<CountryViewModel>>(countryItems);
             ViewBag.Countries = countries;
 
-            IEnumerable<HotelCategoryDTO> hotelCategoryItems = _hotelCategoryService.GetAll();
-            var hotelCategories = AutoMapper.Mapper.Map<IEnumerable<HotelCategoryDTO>, List<HotelCategoryViewModel>>(hotelCategoryItems);
-            ViewBag.HotelCategories = hotelCategories;
+            ViewBag.HotelCategories =
+                AutoMapper.Mapper.Map<IEnumerable<HotelCategoryDTO>, List<HotelCategoryViewModel>>(
+                    _hotelCategoryService.GetAll());
+
+            ViewBag.DepartureCities = AutoMapper.Mapper.Map<IEnumerable<DepartureCityDTO>, List<DepartureCityViewModel>>(_departureCityService.GetAll());
+
+            ViewBag.RecteationTypes =
+                AutoMapper.Mapper.Map<IEnumerable<RecreationDTO>, List<RecreationViewModel>>(_recreationService.GetAll());
 
             return View(hotels);
 	    }
