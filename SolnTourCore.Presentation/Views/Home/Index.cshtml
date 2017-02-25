@@ -1,18 +1,18 @@
 ﻿@using SolnTourCore.Presentation.ViewModels
-@model List<HotelViewModel>
+@model List<TourViewModel>
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_TourLayout";
-    HotelViewModel maxItaly = ViewBag.MaxItaly;
-    HotelViewModel maxSpain = ViewBag.MaxSpain;
-    HotelViewModel maxThailand = ViewBag.MaxThailand;
+    TourViewModel maxItaly = ViewBag.MaxItaly;
+    TourViewModel maxSpain = ViewBag.MaxSpain;
+    TourViewModel maxThailand = ViewBag.MaxThailand;
 
-    HotelViewModel minTurkey = ViewBag.MinTurkey;
-    HotelViewModel minGreece = ViewBag.MinGreece;
-    HotelViewModel minSpain = ViewBag.MinSpain;
-    HotelViewModel minItaly = ViewBag.MinItaly;
-    HotelViewModel minBali = ViewBag.MinBali;
-    HotelViewModel minEgypt = ViewBag.MinEgypt;
+    TourViewModel minTurkey = ViewBag.MinTurkey;
+    TourViewModel minGreece = ViewBag.MinGreece;
+    TourViewModel minSpain = ViewBag.MinSpain;
+    TourViewModel minItaly = ViewBag.MinItaly;
+    TourViewModel minBali = ViewBag.MinBali;
+    TourViewModel minEgypt = ViewBag.MinEgypt;
 }
 
 
@@ -26,10 +26,10 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$@maxItaly.Price.ToString("F2")</span>
-                            <h3 class="title">@maxItaly.Place.PlaceName, @maxItaly.Place.Country.CountryName</h3>
-                            <p title="@maxItaly.Location.Description">@maxItaly.Location.LocationName</p>
-                            <a href="#" class="slider-btn">Reserve Now</a>
+                            <span class="price">$@ViewBag.MaxItalyTotalPrice.ToString("F2")</span>
+                            <h3 class="title">@maxItaly.Hotel.Place.PlaceName, @maxItaly.Hotel.Place.Country.CountryName</h3>
+                            <p title="@maxItaly.Hotel.Location.Description">@maxItaly.Hotel.Location.LocationName</p>
+                            <a href="#" class="slider-btn">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$@maxSpain.Price.ToString("F2")</span>
-                            <h3 class="title">@maxSpain.Place.PlaceName, @maxSpain.Place.Country.CountryName</h3>
-                            <p title="@maxSpain.Location.Description">@maxSpain.Location.LocationName</p>
-                            <a href="#" class="slider-btn">Reserve Now</a>
+                            <span class="price">$@ViewBag.MaxSpainTotalPrice.ToString("F2")</span>
+                            <h3 class="title">@maxSpain.Hotel.Place.PlaceName, @maxSpain.Hotel.Place.Country.CountryName</h3>
+                            <p title="@maxSpain.Hotel.Location.Description">@maxSpain.Hotel.Location.LocationName</p>
+                            <a href="#" class="slider-btn">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -58,10 +58,10 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-4">
                         <div class="flex-caption visible-lg">
-                            <span class="price">$@maxThailand.Price.ToString("F2")</span>
-                            <h3 class="title">@maxThailand.Place.PlaceName, @maxThailand.Place.Country.CountryName</h3>
-                            <p title="@maxThailand.Location.Description">@maxThailand.Location.LocationName</p>
-                            <a href="#" class="slider-btn">Reserve Now</a>
+                            <span class="price">$@ViewBag.MaxThailandTotalPrice.ToString("F2")</span>
+                            <h3 class="title">@maxThailand.Hotel.Place.PlaceName, @maxThailand.Hotel.Place.Country.CountryName</h3>
+                            <p title="@maxThailand.Hotel.Location.Description">@maxThailand.Hotel.Location.LocationName</p>
+                            <a href="#" class="slider-btn">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -78,84 +78,84 @@
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
-                        <h4>@minTurkey.Place.Country.CountryName</h4>
+                        <h4>@minTurkey.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_1.jpg") alt="destination 1">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minTurkey.Place.PlaceName</h5>
-                    <span>@minTurkey.HotelName, @minTurkey.RoomType.RoomTypeName, @minTurkey.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minTurkey.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minTurkey.Hotel.Place.PlaceName</h5>
+                    <span>@minTurkey.Hotel.HotelName, @minTurkey.Hotel.RoomType.RoomTypeName, @minTurkey.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinTurkeyTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>@minGreece.Place.Country.CountryName</h4>
+                        <h4>@minGreece.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_2.jpg") alt="destination 2">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minGreece.Place.PlaceName</h5>
-                    <span>@minGreece.HotelName, @minGreece.RoomType.RoomTypeName, @minGreece.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minGreece.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minGreece..HotelPlace.PlaceName</h5>
+                    <span>@minGreece.Hotel.HotelName, @minGreece.Hotel.RoomType.RoomTypeName, @minGreece.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinGreeceTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>@maxSpain.Place.Country.CountryName</h4>
+                        <h4>@maxSpain.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_3.jpg") alt="destination 3">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minSpain.Place.PlaceName</h5>
-                    <span>@minSpain.HotelName, @minSpain.RoomType.RoomTypeName, @minSpain.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minSpain.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minSpain.Hotel.Place.PlaceName</h5>
+                    <span>@minSpain.Hotel.HotelName, @minSpain.Hotel.RoomType.RoomTypeName, @minSpain.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinSpainTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>@minItaly.Place.Country.CountryName</h4>
+                        <h4>@minItaly.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_4.jpg") alt="destination 4">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minItaly.Place.PlaceName</h5>
-                    <span>@minItaly.HotelName, @minItaly.RoomType.RoomTypeName, @minItaly.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minItaly.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minItaly.Hotel.Place.PlaceName</h5>
+                    <span>@minItaly.Hotel.HotelName, @minItaly.Hotel.RoomType.RoomTypeName, @minItaly.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinItalyTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>@minBali.Place.Country.CountryName</h4>
+                        <h4>@minBali.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_5.jpg") alt="destination 5">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minBali.Place.PlaceName</h5>
-                    <span>@minBali.HotelName, @minBali.RoomType.RoomTypeName, @minBali.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minBali.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minBali.Hotel.Place.PlaceName</h5>
+                    <span>@minBali.Hotel.HotelName, @minBali.Hotel.RoomType.RoomTypeName, @minBali.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinBaliTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
             <div class="list-item">
                 <div class="list-thumb">
                     <div class="title">
                         
-                        <h4>@minEgypt.Place.Country.CountryName</h4>
+                        <h4>@minEgypt.Hotel.Place.Country.CountryName</h4>
                     </div>
                     <img src=@Url.Content("~/MainLayout/images/destination_6.jpg") alt="destination 6">
                 </div> <!-- /.list-thumb -->
                 <div class="list-content">
-                    <h5>@minEgypt.Place.PlaceName</h5>
-                    <span>@minEgypt.HotelName, @minEgypt.RoomType.RoomTypeName, @minEgypt.HotelCategory.HotelCategoryName</span>
-                    <a href="#" class="price-btn">$@minEgypt.Price.ToString("F2") Reserve Now</a>
+                    <h5>@minEgypt.Hotel.Place.PlaceName</h5>
+                    <span>@minEgypt.Hotel.HotelName, @minEgypt.Hotel.RoomType.RoomTypeName, @minEgypt.Hotel.HotelCategory.HotelCategoryName</span>
+                    <a href="#" class="price-btn">$@ViewBag.MinEgyptTotalPrice.ToString("F2") Reserve Now</a>
                 </div> <!-- /.list-content -->
             </div> <!-- /.list-item -->
         </div> <!-- /.our-listing -->
