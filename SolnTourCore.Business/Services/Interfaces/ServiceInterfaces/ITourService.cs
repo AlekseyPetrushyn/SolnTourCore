@@ -9,5 +9,8 @@ namespace SolnTourCore.Business.Services.Interfaces.ServiceInterfaces
     public interface ITourService : IService<TourDTO>
     {
         IEnumerable<TourDTO> FindTours(string countryName, string hotelCategoryName);
+        decimal GetTotalPrice(int id);
+        TourDTO MaxPriceTour(string countryName);
+        TourDTO MinPriceTour(string countryName);
     }
 }
