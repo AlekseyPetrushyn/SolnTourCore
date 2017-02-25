@@ -693,6 +693,15 @@ h4.consult-title {
     margin: 20px 0 20px 0;
 }
 
+h4.consult-title-reference a {
+    font-size: 22px;
+    color: #9e1184;
+    font-weight: 400;
+    margin: 20px 0 20px 0;
+    text-decoration: underline #ff0000;
+    padding: 25%;
+}
+
 .post-small {
     overflow: hidden;
     margin-bottom: 30px;
