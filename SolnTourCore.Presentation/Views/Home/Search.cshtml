@@ -6,6 +6,7 @@
     List<CountryViewModel> counties = ViewBag.Countries;
     List<HotelCategoryViewModel> hotelCategories = ViewBag.HotelCategories;
     List<DepartureCityViewModel> departureCities = ViewBag.DepartureCities;
+    List<RecreationViewModel> recreationTypes = ViewBag.RecteationTypes;
 }
 
 <div class="page-top" id="templatemo_search">
@@ -38,8 +39,15 @@
                         }
                     </select>
                 </p>
-
-
+                <p>
+                    <label for="recreationTypeName">Hotel Categories: </label>
+                    <select name="recreationTypeName">
+                        @foreach (var item in recreationTypes)
+                        {
+                            <option value="@item.RecreationName">@Html.DisplayFor(modelItem => item.RecreationName)</option>
+                        }
+                    </select>
+                </p>
                 <p>
                     <label for="departureCityName">Departure City: </label>
                     <select name="departureCityName">
