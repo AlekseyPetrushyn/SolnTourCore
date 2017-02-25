@@ -17,43 +17,43 @@ using SolnTourCore.Presentation.ViewModels;
 
 namespace SolnTourCore.Presentation.Controllers
 {
-	public class HomeController : Controller
-	{
-		private ICountryService _countryService;
-	    private IHotelService _hotelService;
-	    private IPlaceService _placeService;
-	    private ITourOperatorService _tourOperatorService;
-	    private IOrderService _orderService;
-	    private IHotelCategoryService _hotelCategoryService;
-	    private ITourService _tourService;
-	    private IDepartureCityService _departureCityService;
-	    private IRecreationService _recreationService;
+    public class HomeController : Controller
+    {
+        private ICountryService _countryService;
+        private IHotelService _hotelService;
+        private IPlaceService _placeService;
+        private ITourOperatorService _tourOperatorService;
+        private IOrderService _orderService;
+        private IHotelCategoryService _hotelCategoryService;
+        private ITourService _tourService;
+        private IDepartureCityService _departureCityService;
+        private IRecreationService _recreationService;
 
-		public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
+        public HomeController(ICountryService countryService, IHotelService hotelService, IPlaceService placeService
             , ITourOperatorService tourOperatorService, IOrderService orderService, IHotelCategoryService hotelCategoryService
             , ITourService tourService, IDepartureCityService departureCityService, IRecreationService recreationService)
-		{
-			_countryService = countryService;
-		    _hotelService = hotelService;
-		    _placeService = placeService;
+        {
+            _countryService = countryService;
+            _hotelService = hotelService;
+            _placeService = placeService;
             _tourOperatorService = tourOperatorService;
-		    _orderService = orderService;
-		    _hotelCategoryService = hotelCategoryService;
-		    _tourService = tourService;
-		    _departureCityService = departureCityService;
-		    _recreationService = recreationService;
+            _orderService = orderService;
+            _hotelCategoryService = hotelCategoryService;
+            _tourService = tourService;
+            _departureCityService = departureCityService;
+            _recreationService = recreationService;
 
-		}
-		[HttpGet]
-		public IActionResult Index()
-		{
+        }
+        [HttpGet]
+        public IActionResult Index()
+        {
 
             IEnumerable<TourDTO> items = _tourService.GetAll();
             var tours = AutoMapper.Mapper.Map<IEnumerable<TourDTO>, List<TourViewModel>>(items);
 
             var maxPriceSpain = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Испания"));
-		    var maxPriceItaly = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Италия"));
-		    var maxPriceThailand = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Тайланд"));
+            var maxPriceItaly = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Италия"));
+            var maxPriceThailand = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Тайланд"));
 
             var minPriceTurkey = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Турция"));
             var minPriceGreece = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Греция"));
@@ -63,10 +63,10 @@ namespace SolnTourCore.Presentation.Controllers
             var minPriceEgypt = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Египет"));
 
             ViewBag.MaxSpain = maxPriceSpain;
-		    ViewBag.MaxItaly = maxPriceItaly;
-		    ViewBag.MaxThailand = maxPriceThailand;
+            ViewBag.MaxItaly = maxPriceItaly;
+            ViewBag.MaxThailand = maxPriceThailand;
 
-		    ViewBag.MaxSpainTotalPrice =_tourService.GetTotalPrice(maxPriceSpain.TourId);
+            ViewBag.MaxSpainTotalPrice = _tourService.GetTotalPrice(maxPriceSpain.TourId);
             ViewBag.MaxItalyTotalPrice = _tourService.GetTotalPrice(maxPriceItaly.TourId);
             ViewBag.MaxThailandTotalPrice = _tourService.GetTotalPrice(maxPriceThailand.TourId);
 
@@ -77,7 +77,7 @@ namespace SolnTourCore.Presentation.Controllers
             ViewBag.MinBali = minPriceBali;
             ViewBag.MinEgypt = minPriceEgypt;
 
-		    ViewBag.MinTurkeyTotalPrice = _tourService.GetTotalPrice(minPriceTurkey.TourId);
+            ViewBag.MinTurkeyTotalPrice = _tourService.GetTotalPrice(minPriceTurkey.TourId);
             ViewBag.MinGreeceTotalPrice = _tourService.GetTotalPrice(minPriceGreece.TourId);
             ViewBag.MinSpainTotalPrice = _tourService.GetTotalPrice(minPriceSpain.TourId);
             ViewBag.MinItalyTotalPrice = _tourService.GetTotalPrice(minPriceItaly.TourId);
@@ -85,44 +85,44 @@ namespace SolnTourCore.Presentation.Controllers
             ViewBag.MinEgyptTotalPrice = _tourService.GetTotalPrice(minPriceEgypt.TourId);
 
             return View(tours);
-		}
+        }
 
-		[HttpPost]
-		public ActionResult Delete(int countryId)
-		{
-			_countryService.Delete(countryId);
-			return RedirectToAction(nameof(HomeController.Index));
-		}
+        [HttpPost]
+        public ActionResult Delete(int countryId)
+        {
+            _countryService.Delete(countryId);
+            return RedirectToAction(nameof(HomeController.Index));
+        }
 
-	    [HttpPost]
-	    public ActionResult Update(int countryIdLast, string countryNewName)
-	    {
-	        CountryViewModel cnt = new CountryViewModel
-	        {
-	            CountryId = countryIdLast,
-	            CountryName = countryNewName
-	        };
+        [HttpPost]
+        public ActionResult Update(int countryIdLast, string countryNewName)
+        {
+            CountryViewModel cnt = new CountryViewModel
+            {
+                CountryId = countryIdLast,
+                CountryName = countryNewName
+            };
             var ctt = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(cnt);
-	        _countryService.Update(ctt);
+            _countryService.Update(ctt);
 
             return RedirectToAction(nameof(HomeController.Index));
-	    }
+        }
 
-	    [HttpPost]
-	    public ActionResult Create(string countryName)
-	    {
-	        CountryViewModel cnt = new CountryViewModel
-	        {
+        [HttpPost]
+        public ActionResult Create(string countryName)
+        {
+            CountryViewModel cnt = new CountryViewModel
+            {
                 CountryId = 1,
                 CountryName = countryName
-	        };
-	        var ctt = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(cnt);
+            };
+            var ctt = AutoMapper.Mapper.Map<CountryViewModel, CountryDTO>(cnt);
             _countryService.Create(ctt);
-	        return RedirectToAction(nameof(HomeController.Index));
-	    }
+            return RedirectToAction(nameof(HomeController.Index));
+        }
 
         [HttpGet]
-	    public IActionResult Search()
+        public IActionResult Search()
         {
             IEnumerable<HotelDTO> items = _hotelService.GetAll();
             var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
@@ -141,39 +141,39 @@ namespace SolnTourCore.Presentation.Controllers
                 AutoMapper.Mapper.Map<IEnumerable<RecreationDTO>, List<RecreationViewModel>>(_recreationService.GetAll());
 
             return View(hotels);
-	    }
+        }
 
         [HttpPost]
-	    public IActionResult FindTour(string countryName, string hotelCategoryName)
+        public IActionResult FindTour(string countryName, string hotelCategoryName, string recreationTypeName, string departureCityName, int sortBy)
         {
-            IEnumerable<TourDTO> items = _tourService.FindTours(countryName, hotelCategoryName);
+            IEnumerable<TourDTO> items = _tourService.FindTours(countryName, hotelCategoryName, recreationTypeName, departureCityName, sortBy);
             var tours = AutoMapper.Mapper.Map<IEnumerable<TourDTO>, List<TourViewModel>>(items);
-
-
-
 
             ViewBag.CountryName = countryName;
             ViewBag.HotelCategoryName = hotelCategoryName;
-	        return View(tours);
-	    }
+            ViewBag.RecreationTypeName = recreationTypeName;
+            ViewBag.DepartureCityName = departureCityName;
+            ViewBag.SortBy = sortBy == 0 ? "Descending" : "Ascending";
+            return View(tours);
+        }
 
-		public IActionResult About()
-		{
-			ViewData["Message"] = "Your application description page.";
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
 
-			return View();
-		}
+            return View();
+        }
 
-		public IActionResult Contact()
-		{
-			ViewData["Message"] = "Your contact page.";
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
 
-			return View();
-		}
+            return View();
+        }
 
-		public IActionResult Error()
-		{
-			return View();
-		}
-	}
+        public IActionResult Error()
+        {
+            return View();
+        }
+    }
 }
