@@ -17,64 +17,64 @@
 
         <div class="row">
             <!-- first row -->
-
-          
-                <!-- first column -->
-                <div class="table-item">
-                    <h3 class="widget-title">Результаты поиска запросу :</h3>
+            <!-- first column -->
+            <div class="table-item">
+                <h3 class="widget-title">Результаты поиска запросу :</h3>
                 <h4 class="consult-title">Страна - @ViewBag.CountryName, Категория отеля - @ViewBag.HotelCategoryName</h4>
 
-                    <h4 class="consult-title"> Найдено туров: @Model.Count</h4>
-                    @if (Model.Count == 0)
-                    {
-                        <h4 class="consult-title"> К сожалению подходящего тура ещё нет!</h4>
-                        <h4 class="consult-title"> Измените параметры поиска.</h4>
-                    }
-                    else
-                    {
-                        <table class="find-results-content">
-                            <tr class="result-table-head">
-                                <th>Place Name</th>
-                                <th>Hotel Name</th>
-                                <th>Food Type Name</th>
-                                <th>Accomodation Type Name</th>
-                                <th>Location Type Name</th>
-                                <th>Recreation Type Name</th>
-                                <th>Tour Operator Name</th>
-                                <th>Departure City</th>
-                                <th>Departure Date</th>
-                                <th>Destination City</th>
-                                <th>Destination Date</th>
-                                <th>Additional Service Name</th>
-                                <th>Total Price, $</th>
+                <h4 class="consult-title"> Найдено туров: @Model.Count</h4>
+                @if (Model.Count == 0)
+                {
+                    <h4 class="consult-title"> К сожалению подходящего тура ещё нет!</h4>
+                        <h4 class="consult-title"> Измените параметры поиска. </h4>
 
+                }
+                else
+                {
+                    <table class="find-results-content">
+                        <tr class="result-table-head">
+                            <th>Place Name</th>
+                            <th>Hotel Name</th>
+                            <th>Food Type Name</th>
+                            <th>Accomodation Type Name</th>
+                            <th>Location Type Name</th>
+                            <th>Recreation Type Name</th>
+                            <th>Tour Operator Name</th>
+                            <th>Departure City</th>
+                            <th>Departure Date</th>
+                            <th>Destination City</th>
+                            <th>Destination Date</th>
+                            <th>Additional Service Name</th>
+                            <th>Total Price, $</th>
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="result-table-content">
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Place.PlaceName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Food.FoodName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Accomodation.AccomodationName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Location.LocationName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Hotel.Recreation.RecreationName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.OperatorName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DepartureCity.CityName)</td>
+                                <td>@item.DepartureDate.ToString("D")</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DestinationCity.CityName)</td>
+                                <td>@item.DestinationDate.ToString("D")</td>
+                                <td>@Html.DisplayFor(modelItem => item.TourOperator.AdditionalService.ServiceName)</td>
+                                <td>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</td>
                             </tr>
 
-                            @foreach (var item in Model)
-                            {
-                                <tr class="result-table-content">
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.Place.PlaceName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.Food.FoodName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.Accomodation.AccomodationName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.Location.LocationName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Hotel.Recreation.RecreationName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.TourOperator.OperatorName)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DepartureCity.CityName)</td>
-                                    <td>@item.DepartureDate.ToString("D")</td>
-                                    <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DestinationCity.CityName)</td>
-                                    <td>@item.DestinationDate.ToString("D")</td>
-                                    <td>@Html.DisplayFor(modelItem => item.TourOperator.AdditionalService.ServiceName)</td>
-                                    <td>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</td>
-                                </tr>
+                        }
 
-                            }
+                    </table>
+                }
+                <h4 class="consult-title-reference"><a href="javascript:history.back();">Назад к странице поиска</a></h4>
+            </div> <!-- /.widget-item -->
 
-                        </table>
-                    }
-                </div> <!-- /.widget-item -->
 
-        
 
         </div> <!-- /.row first -->
 
