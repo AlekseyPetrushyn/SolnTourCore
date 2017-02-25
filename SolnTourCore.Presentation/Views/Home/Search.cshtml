@@ -9,29 +9,49 @@
 
 <div class="page-top" id="templatemo_search">
 </div> <!-- /.page-header -->
+<div class="middle-content">
+    <div class="container">
 
-@using (Html.BeginForm("FindTour", "Home", FormMethod.Post))
-{
-    <p>
-        <label for="countryName">Countries</label>
-        <select name="countryName">
-            @foreach (var item in counties)
+        <div class="row">
+            <!-- first row -->
+            <!-- first column -->
+            <div class="tour-search-item">
+                <h3 class="widget-title">Поиск тура:</h3>
+                @using (Html.BeginForm("FindTour", "Home", FormMethod.Post))
             {
-                <option value="@item.CountryName">@Html.DisplayFor(modelItem => item.CountryName)</option>
-            }
-        </select>
-    </p>
-    <p>
-        <label for="hotelCategoryName">Hotel Categories</label>
-        <select name="hotelCategoryName">
-            @foreach (var item in hotelCategories)
-            {
-                <option value="@item.HotelCategoryName">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
-            }
-        </select>
-    </p>
-    <p>
-        <input type="submit" value="Поиск тура"/>
-    </p>
+                    <p>
+                        <label for="countryName">Countries: </label>
+                        <select name="countryName">
+                            @foreach (var item in counties)
+                            {
+                                <option value="@item.CountryName">@Html.DisplayFor(modelItem => item.CountryName)</option>
+                            }
+                        </select>
+                    </p>
+                <p>
+                    <label for="hotelCategoryName">Hotel Categories: </label>
+                    <select name="hotelCategoryName">
+                        @foreach (var item in hotelCategories)
+                        {
+                            <option value="@item.HotelCategoryName">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
+                        }
+                    </select>
+                </p>
 
-}
+
+                <p>
+                    <label for="sort-by">Sort Price by: </label><br/>
+                    @Html.RadioButton("sort-by", 0, true)
+                    <span>Descending</span><br/>
+                    @Html.RadioButton("sort-by", 1)
+                    <span>Ascending</span><br />
+                </p>
+                    <p>
+                        <input type="submit" value="Поиск тура" />
+                    </p>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
