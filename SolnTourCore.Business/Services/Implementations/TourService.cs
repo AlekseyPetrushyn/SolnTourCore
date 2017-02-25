@@ -70,14 +70,18 @@ namespace SolnTourCore.Business.Services.Implementations
             {
                 tourTuples.Add(new Tuple<TourDTO, decimal>(item, GetTotalPrice(item.TourId)));
             }
-
+            //сортируем по стоимости
             List<Tuple<TourDTO, decimal>> testTuples = new List<Tuple<TourDTO, decimal>>(tourTuples.OrderBy(t => t.Item2));
 
             if (sortBy == 0) testTuples.Reverse();
+            //создаём коллекцию для вывода
+            List<TourDTO> newTour = new List<TourDTO>();
+            foreach (var item in testTuples)
+            {
+                newTour.Add(item.Item1);
+            }
 
-
-
-            return tours;
+            return newTour;
         }
 
         //рассчитаем общую стоимость тура
