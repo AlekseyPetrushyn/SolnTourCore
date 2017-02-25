@@ -64,6 +64,18 @@ namespace SolnTourCore.Business.Services.Implementations
                 .Where(t => t.Hotel.Recreation.RecreationName == recreationTypeName)
                 .Where(t => t.TourOperator.Transfer.DepartureCity.CityName == departureCityName));
 
+            /*попробуем создать кортеж для передачи его на уровень представления*/
+            List<Tuple<TourDTO, decimal>> tourTuples = new List<Tuple<TourDTO, decimal>>();
+            foreach (var item in tours)
+            {
+                tourTuples.Add(new Tuple<TourDTO, decimal>(item, GetTotalPrice(item.TourId)));
+            }
+
+            List<Tuple<TourDTO, decimal>> testTuples = new List<Tuple<TourDTO, decimal>>(tourTuples.OrderBy(t => t.Item2));
+
+            if (sortBy == 0) testTuples.Reverse();
+
+
 
             return tours;
         }
@@ -86,7 +98,7 @@ namespace SolnTourCore.Business.Services.Implementations
             {
                 Tours.Add(new Tuple<TourDTO, decimal>(item, GetTotalPrice(item.TourId)));
             }
-            
+
             return Tours.Find(t => t.Item2 == Tours.Max(m => m.Item2)).Item1; //находим макс стоимость и по ней находим соответсвующий DTO
         }
 
@@ -96,7 +108,7 @@ namespace SolnTourCore.Business.Services.Implementations
             IEnumerable<TourDTO> tours =
                 AutoMapper.Mapper.Map<IEnumerable<Tour>, List<TourDTO>>(
                     _repository.Find(t => t.Hotel.Place.Country.CountryName == countryName));
-            List<Tuple< TourDTO, decimal>> Tours = new List<Tuple<TourDTO, decimal>>();
+            List<Tuple<TourDTO, decimal>> Tours = new List<Tuple<TourDTO, decimal>>();
 
             foreach (var item in tours)
             {
