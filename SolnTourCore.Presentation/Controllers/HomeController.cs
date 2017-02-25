@@ -44,31 +44,43 @@ namespace SolnTourCore.Presentation.Controllers
 		public IActionResult Index()
 		{
 
-            IEnumerable<HotelDTO> items = _hotelService.GetAll();
-            var hotels = AutoMapper.Mapper.Map<IEnumerable<HotelDTO>, List<HotelViewModel>>(items);
+            IEnumerable<TourDTO> items = _tourService.GetAll();
+            var tours = AutoMapper.Mapper.Map<IEnumerable<TourDTO>, List<TourViewModel>>(items);
 
-            var maxPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Испания"));
-		    var maxPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Италия"));
-		    var maxPriceThailand = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MaxPriceHotel("Тайланд"));
+            var maxPriceSpain = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Испания"));
+		    var maxPriceItaly = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Италия"));
+		    var maxPriceThailand = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MaxPriceTour("Тайланд"));
 
-            var minPriceTurkey = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Турция"));
-            var minPriceGreece = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Греция"));
-            var minPriceSpain = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Испания"));
-            var minPriceItaly = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Италия"));
-            var minPriceBali = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Бали"));
-            var minPriceEgypt = AutoMapper.Mapper.Map<HotelDTO, HotelViewModel>(_hotelService.MinPriceHotel("Египет"));
+            var minPriceTurkey = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Турция"));
+            var minPriceGreece = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Греция"));
+            var minPriceSpain = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Испания"));
+            var minPriceItaly = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Италия"));
+            var minPriceBali = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Бали"));
+            var minPriceEgypt = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(_tourService.MinPriceTour("Египет"));
 
             ViewBag.MaxSpain = maxPriceSpain;
 		    ViewBag.MaxItaly = maxPriceItaly;
 		    ViewBag.MaxThailand = maxPriceThailand;
 
-		    ViewBag.MinTurkey = minPriceTurkey;
+		    ViewBag.MaxSpainTotalPrice =_tourService.GetTotalPrice(maxPriceSpain.TourId);
+            ViewBag.MaxItalyTotalPrice = _tourService.GetTotalPrice(maxPriceItaly.TourId);
+            ViewBag.MaxThailandTotalPrice = _tourService.GetTotalPrice(maxPriceThailand.TourId);
+
+            ViewBag.MinTurkey = minPriceTurkey;
             ViewBag.MinGreece = minPriceGreece;
             ViewBag.MinSpain = minPriceSpain;
             ViewBag.MinItaly = minPriceItaly;
             ViewBag.MinBali = minPriceBali;
             ViewBag.MinEgypt = minPriceEgypt;
-            return View(hotels);
+
+		    ViewBag.MinTurkeyTotalPrice = _tourService.GetTotalPrice(minPriceTurkey.TourId);
+            ViewBag.MinGreeceTotalPrice = _tourService.GetTotalPrice(minPriceGreece.TourId);
+            ViewBag.MinSpainTotalPrice = _tourService.GetTotalPrice(minPriceSpain.TourId);
+            ViewBag.MinItalyTotalPrice = _tourService.GetTotalPrice(minPriceItaly.TourId);
+            ViewBag.MinBaliTotalPrice = _tourService.GetTotalPrice(minPriceBali.TourId);
+            ViewBag.MinEgyptTotalPrice = _tourService.GetTotalPrice(minPriceEgypt.TourId);
+
+            return View(tours);
 		}
 
 		[HttpPost]
