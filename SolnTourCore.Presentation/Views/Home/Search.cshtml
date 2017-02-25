@@ -5,6 +5,7 @@
     Layout = "_TourLayout";
     List<CountryViewModel> counties = ViewBag.Countries;
     List<HotelCategoryViewModel> hotelCategories = ViewBag.HotelCategories;
+    List<DepartureCityViewModel> departureCities = ViewBag.DepartureCities;
 }
 
 <div class="page-top" id="templatemo_search">
@@ -38,6 +39,16 @@
                     </select>
                 </p>
 
+
+                <p>
+                    <label for="departureCityName">Departure City: </label>
+                    <select name="departureCityName">
+                        @foreach (var item in departureCities)
+                        {
+                            <option value="@item.CityName">@Html.DisplayFor(modelItem => item.CityName)</option>
+                        }
+                    </select>
+                </p>
 
                 <p>
                     <label for="sort-by">Sort Price by: </label><br/>
