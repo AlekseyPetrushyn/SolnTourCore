@@ -634,7 +634,10 @@ div .table-item th:last-child {
 
 div .table-item td {
     padding: 10px 20px;
-    background: #F8E391;
+    background: #DFF0BD;
+}
+div .table-item td:nth-child(odd) {
+    background: #C1E180
 }
 div .table-item tr:last-child td:first-child {
 border-radius: 0 0 0 10px;
