@@ -33,6 +33,7 @@
                 <p>
                     <label for="hotelCategoryName">Hotel Categories: </label>
                     <select name="hotelCategoryName">
+                        <option value="all">All</option>
                         @foreach (var item in hotelCategories)
                         {
                             <option value="@item.HotelCategoryName">@Html.DisplayFor(modelItem => item.HotelCategoryName)</option>
@@ -42,6 +43,7 @@
                 <p>
                     <label for="recreationTypeName">Hotel Categories: </label>
                     <select name="recreationTypeName">
+                        <option value="all">All</option>
                         @foreach (var item in recreationTypes)
                         {
                             <option value="@item.RecreationName">@Html.DisplayFor(modelItem => item.RecreationName)</option>
@@ -51,6 +53,7 @@
                 <p>
                     <label for="departureCityName">Departure City: </label>
                     <select name="departureCityName">
+                        <option value="all">All</option>
                         @foreach (var item in departureCities)
                         {
                             <option value="@item.CityName">@Html.DisplayFor(modelItem => item.CityName)</option>

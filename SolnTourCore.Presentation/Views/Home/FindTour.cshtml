@@ -46,16 +46,16 @@
                         <th>Departure City</th>
                         <th>Departure Date</th>
                         <th>Destination City</th>
-                        <th>Destination Date</th>
+                        <th>Return Date</th>
                         <th>Additional Service Name</th>
-                        <th>Total Price, $</th>
+                        <th><b>Total Price, $</b></th>
 
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr class="result-table-content">
-                            <td>@Html.DisplayFor(modelItem => item.Hotel.Place.PlaceName)</td>
+                            <td class="col-colored">@Html.DisplayFor(modelItem => item.Hotel.Place.PlaceName)</td>
                             <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
                             <td>@Html.DisplayFor(modelItem => item.Hotel.Food.FoodName)</td>
                             <td>@Html.DisplayFor(modelItem => item.Hotel.Accomodation.AccomodationName)</td>
@@ -67,7 +67,7 @@
                             <td>@Html.DisplayFor(modelItem => item.TourOperator.Transfer.DestinationCity.CityName)</td>
                             <td>@item.DestinationDate.ToString("D")</td>
                             <td>@Html.DisplayFor(modelItem => item.TourOperator.AdditionalService.ServiceName)</td>
-                            <td>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</td>
+                            <td><b>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</b></td>
                         </tr>
 
                     }

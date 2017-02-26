@@ -58,11 +58,70 @@ namespace SolnTourCore.Business.Services.Implementations
 
         public IEnumerable<TourDTO> FindTours(string countryName, string hotelCategoryName, string recreationTypeName, string departureCityName, int sortBy)
         {
+
+            var nextTest = _repository.GetAll();
+
+            IEnumerable<TourDTO> testTours = AutoMapper.Mapper.Map<IEnumerable<Tour>, List<TourDTO>>(_repository.GetAll());
+
+            if ((hotelCategoryName == "all") & (recreationTypeName == "all") & (departureCityName == "all"))
+            {
+                nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName);
+            }
+            else
+            {
+                if ((hotelCategoryName == "all") & (recreationTypeName == "all"))
+                {
+                    nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                        .Where(t => t.TourOperator.Transfer.DepartureCity.CityName == departureCityName);
+                }
+                else
+                {
+                    if ((recreationTypeName == "all") & (departureCityName == "all"))
+                    {
+                        nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                            .Where(t => t.Hotel.HotelCategory.HotelCategoryName == hotelCategoryName);
+                    }
+                    else
+                    {
+                        if ((hotelCategoryName == "all") & (departureCityName == "all"))
+                        {
+                            nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                                .Where(t => t.Hotel.Recreation.RecreationName == recreationTypeName);
+                        }
+                        else
+                        {
+                            if (departureCityName == "all")
+                            {
+                                nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                                    .Where(t => t.Hotel.HotelCategory.HotelCategoryName == hotelCategoryName)
+                                    .Where(t => t.Hotel.Recreation.RecreationName == recreationTypeName);
+                            }
+                            else
+                            {
+                                if (hotelCategoryName == "all")
+                                {
+                                    nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                                        .Where(t => t.TourOperator.Transfer.DepartureCity.CityName == departureCityName)
+                                        .Where(t => t.Hotel.Recreation.RecreationName == recreationTypeName);
+                                }
+                                else
+                                {
+                                    if (recreationTypeName == "all")
+                                    {
+                                        nextTest = _repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
+                                            .Where(t => t.TourOperator.Transfer.DepartureCity.CityName == departureCityName)
+                                            .Where(t => t.Hotel.HotelCategory.HotelCategoryName == hotelCategoryName);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
             IEnumerable<TourDTO> tours =
-                AutoMapper.Mapper.Map<IEnumerable<Tour>, List<TourDTO>>(_repository.GetAll().Where(t => t.Hotel.Place.Country.CountryName == countryName)
-                .Where(t => t.Hotel.HotelCategory.HotelCategoryName == hotelCategoryName)
-                .Where(t => t.Hotel.Recreation.RecreationName == recreationTypeName)
-                .Where(t => t.TourOperator.Transfer.DepartureCity.CityName == departureCityName));
+                AutoMapper.Mapper.Map<IEnumerable<Tour>, List<TourDTO>>(nextTest);
 
             /*попробуем создать кортеж для передачи его на уровень представления*/
             List<Tuple<TourDTO, decimal>> tourTuples = new List<Tuple<TourDTO, decimal>>();
