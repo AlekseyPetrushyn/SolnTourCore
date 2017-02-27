@@ -40,7 +40,7 @@ namespace SolnTourCore.DataAccess.Repositories.EntityRepositories
 
 		public Tour Get(int id)
 		{
-			return _context.tours.Find(id);
+			return GetAll().FirstOrDefault(t => t.TourId == id);
 		}
 
 		public IEnumerable<Tour> Find(Func<Tour, bool> predicate)
