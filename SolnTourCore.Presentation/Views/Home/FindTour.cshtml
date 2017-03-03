@@ -22,7 +22,7 @@
                 <h3 class="widget-title">Результаты поиска запросу :</h3>
                 <h4 class="consult-title">
                     Страна - @ViewBag.CountryName, Категория отеля - @ViewBag.HotelCategoryName, Тип вида отдыха - @ViewBag.RecreationTypeName,
-                    Город отправления - @ViewBag.DepartureCityName, Сортировка - @ViewBag.SortBy
+                    Город отправления - @ViewBag.DepartureCityName, Сортировка по цене - @ViewBag.SortBy
             </h4>
 
             <h4 class="consult-title"> Найдено туров: @Model.Count</h4>
@@ -49,6 +49,7 @@
                         <th>Return Date</th>
                         <th>Additional Service Name</th>
                         <th><b>Total Price, $</b></th>
+                        <th></th>
 
                     </tr>
 
@@ -68,6 +69,7 @@
                             <td>@item.DestinationDate.ToString("D")</td>
                             <td>@Html.DisplayFor(modelItem => item.TourOperator.AdditionalService.ServiceName)</td>
                             <td><b>@((item.Hotel.Price + item.TourOperator.Transfer.Price + item.TourOperator.AdditionalService.Price).ToString("F2"))</b></td>
+                            <td><b><a href="/Home/OrderResult/@item.TourId">Buy Now!</a></b></td>
                         </tr>
 
                     }

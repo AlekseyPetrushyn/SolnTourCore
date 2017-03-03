@@ -1,0 +1,50 @@
+﻿@using SolnTourCore.Presentation.ViewModels;
+@model TourViewModel
+@{
+    ViewData["Title"] = "OrderInformation";
+    Layout = "_TourLayout";
+    TourViewModel dataTour = ViewBag.DataTour;
+}
+
+<div class="page-top" id="templatemo_contact">
+</div> <!-- /.page-header -->
+
+
+<div class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-6 map-wrapper">
+                <h3 class="widget-title">Свяжитесь с нами!</h3>
+
+                <div class="contact-infos">
+                    <ul>
+                        <li>48, Проспект Октября</li>
+                        <li>г. Гомель, Республика Беларусь</li>
+                        <li>Tel: +375-232-111-11-11</li>
+                        <li>Email: <a href="mailto:info@company.com">info@company.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-6">
+                <h3 class="widget-title">Вы выбрали:</h3>
+                <div class="contact-infos">
+                    <ul>
+                        <li> тур - №@Model.TourId,</li>
+                        <li> страна - @dataTour.Hotel.Place.Country.CountryName,</li>
+                        <li> место - @Model.Hotel.Place.PlaceName,</li>
+                        <li> отель - @Model.Hotel.HotelName,</li>
+                        <li> питание - @Model.Hotel.Food.FoodName,</li>
+                        <li> размещение - @Model.Hotel.Accomodation.AccomodationName,</li>
+                        <li> местоположение отеля - @Model.Hotel.Location.LocationName,</li>
+                        <li> вид отдыха - @Model.Hotel.Recreation.RecreationName,</li>
+                        <li> город вылета - @Model.TourOperator.Transfer.DepartureCity.CityName,</li>
+                        <li> дата отправления - @Model.DepartureDate</li>
+                        <li> дата возвращения - @Model.DestinationDate</li>
+                        <li> полная стоимость - @(Model.Hotel.Price + Model.TourOperator.AdditionalService.Price + Model.TourOperator.Transfer.Price)</li>
+                    </ul>
+                <p>Свяжитесь с нами и сообщите оператору номер выбранного тура.</p>
+                </div> <!-- /.contact-infos -->
+            </div>
+        </div>
+    </div>
+</div>

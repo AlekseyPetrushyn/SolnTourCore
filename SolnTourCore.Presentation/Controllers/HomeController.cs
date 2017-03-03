@@ -157,6 +157,15 @@ namespace SolnTourCore.Presentation.Controllers
             return View(tours);
         }
 
+        [HttpGet]
+        public IActionResult OrderResult(int id)
+        {
+            TourDTO item = _tourService.Get(id);
+            var tour = AutoMapper.Mapper.Map<TourDTO, TourViewModel>(item);
+	        ViewBag.DataTour = tour;
+	        ViewBag.First = tour.Hotel.Place.Country.CountryName;
+            return View(tour);
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
